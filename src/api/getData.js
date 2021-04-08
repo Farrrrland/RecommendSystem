@@ -1,7 +1,12 @@
-var dispalyList = function(obj) {
+var dispalyList = function(obj, rule) {
     // 和router.js中的方法一样。调用的时候传参来确定操作对象。
     // 可以把this.data中的某个值作为参数传入这样回调函数能够直接修改data进而进行渲染
-    axis.get('/api/display.json') // url我随便写的应该要和后端再联调
+    axis.get('/api/data'), {
+        params: {
+            name: null,
+            rule: rule
+        }
+    }
         .then(
             (response) => {
                 console.log(response);
@@ -13,11 +18,12 @@ var dispalyList = function(obj) {
         })
 }
 
-var searchData = function(obj, key) {
+var searchData = function(obj, key, rule) {
     // 查询某条数据，提供key作为参数
-    axis.get('/api/display.json', {
+    axis.get('/api/data', {
         params: {
-            name: key
+            name: key,
+            rule: rule
         }
     })
         .then(

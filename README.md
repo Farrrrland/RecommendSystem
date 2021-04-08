@@ -46,6 +46,11 @@ npm run lint
 
 `vue.config.js` 中配置了 `axios` 跨域，`target` 就是需要通信的 url。
 
+### api
+url：`BaseUrl/api/`
+1. 前端向 `BaseUrl/api/data` 发出 get 请求，同时包含两个参数 `key` 和 `rule`，分别表示搜索的关键字和排序规则。其中关键字为空表示请求所有数据。
+2. 前端向 `BaseUrl/api/upload` 发出post请求，上传推荐。
+3. 收藏？注册？
 
 
 ### 待进行任务
