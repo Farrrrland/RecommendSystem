@@ -8,9 +8,9 @@ Vue.prototype.$axios = axios;
 Vue.prototype.$router_func = router_func;
 Vue.config.productionTip = false
 
-axios.get('/api/test')
-.then(res=>console.log(res))
-.catch(err=>console.log(err))
+// axios.get('/api/test')
+// .then(res=>console.log(res))
+// .catch(err=>console.log(err))
 
 new Vue({
   render: h => h(App),
