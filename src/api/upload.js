@@ -1,6 +1,6 @@
 var uploadText = function(str) {
     // 上传文本（待调试）
-    axios.post('/api/upload', {
+    this.$axios.post('/api/upload', {
         Text: str
     })
     .then(
@@ -23,16 +23,16 @@ var uploadImage = function(obj) {
             'Content-Type': 'multipart/form-data'
         }   // 添加请求头
     }
-    axios.post('/api/upload', param, config)  
-        .then(
-            res => {
-                console.log(res.data)  
-            // if (this.form.url) {  
-            //     alert('图片上传成功')  
-            // }
-        })
-        .catch(
-            (err) => {
-                console.log(err);
-        })
+    this.$axios.post('/api/upload', param, config)  
+    .then(
+        res => {
+            console.log(res.data)  
+        // if (this.form.url) {  
+        //     alert('图片上传成功')  
+        // }
+    })
+    .catch(
+        (err) => {
+            console.log(err);
+    })
 }

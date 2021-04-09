@@ -1,23 +1,46 @@
+<template>
+<div>
+  <el-header>Login</el-header>
+  <el-main>
+    <el-input v-model="user_name" placeholder="请输入用户名" clearable></el-input>
+    <el-input v-model="password" placeholder="请输入密码" clearable show-password></el-input>
+    <el-button type="danger" plain @click="Cancel">取消</el-button>
+    <el-button type="success" plain @click="Login">登录</el-button>
+  </el-main>
+</div>
+</template>
+
 
 <script>
-this.$axios.post("/xxx/login", {user: name, password: pwd})
-    .then(data => {
-        //登录失败,先不讨论
-        if (data.data.status != 200) {
-          //iViewUi的友好提示
-          this.$Message.error(data.data.message);
-        //登录成功
-        } else {
-          //设置Vuex登录标志为true，默认userLogin为false
-          this.$store.dispatch("userLogin", true);
-          //Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
-          //我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
-          localStorage.setItem("Flag", "isLogin");
-          //iViewUi的友好提示
-          this.$Message.success(data.data.message);
-          //登录成功后跳转到指定页面
-          this.$router.push("/home");
-        }
- });
+// import login_func from '../api/login'
+
+export default {
+  name: 'logIn',
+  data() {
+    return {
+      user_name: "",
+      password: ""
+    }
+  },
+  methods: {
+    Login() {
+      console.log("try to login\n")
+      // if 匹配 则 修改sessionStorage 的 'login' 状态为 true
+      // 待测试模块 login.js
+      // login_func.sendUserInfo(this)
+
+      // 不含数据传输的测试代码
+      console.log(window.sessionStorage.getItem('usr'))
+      console.log(window.sessionStorage.getItem('login'))
+      window.sessionStorage.setItem("usr", this.user_name)
+      window.sessionStorage.setItem("login", true)
+      this.$router_func.toHome(this)
+    },
+    Cancel() {
+      this.user_name = ""
+      this.password = ""
+    }
+  }
+}
 </script>
 

@@ -6,23 +6,31 @@ import login from '@/components/login'
 export default [
     {
       path: '/', 
-      name: 'home', 
-      component: home 
+      redirect: '/home'
     },
     { 
       path: '/home', 
       name: 'home', 
-      component: home 
+      component: home,
+      meta: {
+        isLogin: false
+      }
     },
     { 
       path: '/user', 
       name: 'user', 
-      component: user
+      component: user,
+      meta: {
+        isLogin: true
+      }
     },
     { 
       path: '/upload', 
       name: 'upload', 
-      component: upload
+      component: upload,
+      meta: {
+        isLogin: true
+      }
     },
     {
       path: '/login',
@@ -30,7 +38,7 @@ export default [
       component: login,
       // meta 中的 isLogin 标志表示是否需要登录
       meta: {
-        isLogin: false
+        isLogin: 'loginPage'
       }
     }
 ]

@@ -18,9 +18,16 @@ var toUpload = function (obj) {
     console.log("end_upload")
 }
 
+var toLogin = function (obj) {
+    console.log("start_login")
+    obj.$router.push('./login')
+    console.log("end_login")
+}
+
 // 导出接口
 export default {
     toUser,
     toHome,
-    toUpload
+    toUpload,
+    toLogin
 }
