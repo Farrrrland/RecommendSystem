@@ -11,8 +11,8 @@ var sendUserInfo = function(obj) {
             }
         }
     )
-    .then((response) => {
-        if(response.data.status=="200"){
+    .then ((response) => {
+        if (response.data.status=="200") {
             console.log(window.sessionStorage.getItem('usr'))
             console.log(window.sessionStorage.getItem('login'))
             window.sessionStorage.setItem("usr", obj.user_name)
@@ -20,7 +20,7 @@ var sendUserInfo = function(obj) {
             this.$router_func.toHome(obj)
         }
     })
-    .catch(
+    .catch (
         (error) => {
             console.log(error);
     })
