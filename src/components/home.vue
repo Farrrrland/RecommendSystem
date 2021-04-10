@@ -40,7 +40,7 @@ export default {
     search_test() {
       // search.dispalyList(this.data)
       search.searchData(this.data, 'AAAAAB', 'BBBBBB', 1, 7)
-    }
+    },
     Register() {
       this.$router_func.toRegister(this)
     }
