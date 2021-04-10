@@ -2,7 +2,7 @@ var sendUserInfo = function(obj) {
     this.$axios.post("/api/login", 
         JSON.stringify({
             userName: obj.user_name,
-            passward: obj.passward
+            password: obj.password
         }),
         {
             headers: {

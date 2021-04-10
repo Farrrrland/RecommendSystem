@@ -6,7 +6,7 @@
     <p>The button above has been clicked {{ counter }} times.</p>
     <button v-on:click="Home()"> home </button>
     <button v-on:click="User()"> user </button>
-    <button v-on:click="Register()"> user </button>
+    <button v-on:click="Register()"> register </button>
     <button v-on:click="Upload()"> upload </button>
     <button v-on:click="search_test()"> 获取测试数据 </button>
   </div>
