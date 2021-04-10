@@ -1,6 +1,6 @@
 <template>
 <div>
-  <el-header>Register</el-header>
+  <h1>Register</h1>
   <el-main>
     <el-input v-model="email_address" placeholder="email" clearable>
       <template slot="append">
@@ -10,8 +10,9 @@
     
     <el-input v-model="user_name" placeholder="user_name" clearable></el-input>
     <el-input v-model="password" placeholder="password" clearable show-password></el-input>
+    <el-input v-model="ver_code" placeholder="请输入验证码" clearable show-password></el-input>
 <!--    <el-input v-model="password2" placeholder="请确认密码" clearable show-password></el-input>-->
-    <el-button type="danger" plain @click="Cancel">取消</el-button>
+    <el-button type="danger" plain @click="Cancel()">取消</el-button>
     <el-button type="success" plain @click="Register">注册</el-button>
   </el-main>
 </div>
@@ -24,7 +25,8 @@ name: "register",
     return {
       user_name: "",
       password: "",
-      email_address:""
+      email_address: "",
+      ver_code: ""
       // email_pwd: ""
     }
   },
@@ -42,6 +44,8 @@ name: "register",
       this.user_name = ""
       this.password = ""
       this.email_address = ""
+      this.ver_code = ""
+      this.$router_func.toHome(this)
     }
   }
 }
