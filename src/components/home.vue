@@ -6,6 +6,7 @@
     <p>The button above has been clicked {{ counter }} times.</p>
     <button v-on:click="Home()"> home </button>
     <button v-on:click="User()"> user </button>
+    <button v-on:click="Register()"> user </button>
     <button v-on:click="Upload()"> upload </button>
   </div>
 </template>
@@ -30,6 +31,9 @@ export default {
     },
     Upload() {
       this.$router_func.toUpload(this)
+    }
+    Register() {
+      this.$router_func.toRegister(this)
     }
   }
 }

@@ -24,10 +24,17 @@ var toLogin = function (obj) {
     console.log("end_login")
 }
 
+var toRegister = function (obj) {
+    console.log("start_register")
+    obj.$router.push('./register')
+    console.log("end_register")
+}
+
 // 导出接口
 export default {
     toUser,
     toHome,
     toUpload,
-    toLogin
+    toLogin,
+    toRegister
 }
