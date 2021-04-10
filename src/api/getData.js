@@ -24,12 +24,10 @@ var dispalyList = function(obj) {
 var searchData = function(obj, key, desc, fid, uid) {
     // 查询某条数据，提供key作为参数
     axios.post('http://111.229.81.92:8000/index/item/listApi', {
-        params: {
             fname: key,
             fdesc: desc,
             fid: fid,
             uid: uid
-        }
     })
     .then(
         (response) => {
