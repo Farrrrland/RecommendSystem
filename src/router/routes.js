@@ -2,6 +2,7 @@ import home from '@/components/home'
 import user from '@/components/user'
 import upload from '@/components/upload'
 import login from '@/components/login'
+import register from '@/components/register'
 
 export default [
     {
@@ -30,6 +31,14 @@ export default [
       component: upload,
       meta: {
         isLogin: true
+      }
+    },
+    { 
+      path: '/register', 
+      name: 'register', 
+      component: register,
+      meta: {
+        isLogin: false
       }
     },
     {
