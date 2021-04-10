@@ -7,15 +7,20 @@
     <button v-on:click="Home()"> home </button>
     <button v-on:click="User()"> user </button>
     <button v-on:click="Upload()"> upload </button>
+    <button v-on:click="search_test()"> 获取测试数据 </button>
   </div>
 </template>
 
 <script>
+import search from '../api/getData'
 export default {
   name: 'home',
   data() {
     return {
-      counter: 0
+      counter: 0,
+      res: {
+        stat: 'failed'
+      }
     }
   },
   methods: {
@@ -30,6 +35,10 @@ export default {
     },
     Upload() {
       this.$router_func.toUpload(this)
+    },
+    search_test() {
+      // search.dispalyList(this.data)
+      search.searchData(this.data, 'AAAAAB', 'BBBBBB', 1, 7)
     }
   }
 }

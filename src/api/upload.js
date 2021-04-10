@@ -26,7 +26,7 @@ var uploadImage = function(obj) {
     this.$axios.post('/api/upload', param, config)  
     .then(
         res => {
-            console.log(res.data)  
+            console.log(res.data)
         // if (this.form.url) {  
         //     alert('图片上传成功')  
         // }

@@ -7,7 +7,7 @@ import router_func from './common/router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-Vue.prototype.$axios = axios;
+// Vue.prototype.$axios = axios;
 Vue.prototype.$router_func = router_func;
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -15,6 +15,17 @@ Vue.use(ElementUI)
 // axios.get('/api/test')
 // .then(res=>console.log(res))
 // .catch(err=>console.log(err))
+
+axios.get('http://111.229.81.92:8000/index/item/listApi')
+.then(
+  (response) => {
+      console.log("success!")
+      console.log(response.data);
+})
+.catch(
+  (error) => {
+      console.log(error);
+})
 
 // 每次页面切换时判断是否需要登录权限
 router.beforeEach((to, from, next) => {
