@@ -10,12 +10,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 // Vue.prototype.$axios = axios;
 Vue.prototype.$router_func = router_func;
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
 Vue.use(ElementUI)
 
-// axios.get('/api/test')
-// .then(res=>console.log(res))
-// .catch(err=>console.log(err))
 
+
+
+// 测试所有数据
 axios.get('http://111.229.81.92:8000/index/item/listApi')
 .then(
   (response) => {

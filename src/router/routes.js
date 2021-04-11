@@ -2,6 +2,9 @@ import home from '@/components/home'
 import user from '@/components/user'
 import upload from '@/components/upload'
 import login from '@/components/login'
+import register from '@/components/register'
+import testpage from '@/components/testpage'
+
 
 export default [
     {
@@ -32,6 +35,14 @@ export default [
         isLogin: true
       }
     },
+    { 
+      path: '/register', 
+      name: 'register', 
+      component: register,
+      meta: {
+        isLogin: false
+      }
+    },
     {
       path: '/login',
       name: 'login',
@@ -39,6 +50,14 @@ export default [
       // meta 中的 isLogin 标志表示是否需要登录
       meta: {
         isLogin: 'loginPage'
+      }
+    },
+    { 
+      path: '/testpage', 
+      name: 'testpage', 
+      component: testpage,
+      meta: {
+        isLogin: false
       }
     }
 ]

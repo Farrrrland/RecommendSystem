@@ -30,15 +30,16 @@ export default {
       // login_func.sendUserInfo(this)
 
       // 不含数据传输的测试代码
-      console.log(window.sessionStorage.getItem('usr'))
-      console.log(window.sessionStorage.getItem('login'))
       window.sessionStorage.setItem("usr", this.user_name)
       window.sessionStorage.setItem("login", true)
+      console.log(window.sessionStorage.getItem('usr'))
+      console.log(window.sessionStorage.getItem('login'))
       this.$router_func.toHome(this)
     },
     Cancel() {
       this.user_name = ""
       this.password = ""
+      this.$router_func.toHome(this)
     }
   }
 }
