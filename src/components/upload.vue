@@ -1,10 +1,11 @@
 <template>
     
     <div>
-        <h1> upload </h1>
-        <el-input v-model="food_name" placeholder="请输入食物名" clearable></el-input>
-        <el-input type="textarea" :autosize="{ minRows: 4}" v-model="food_desc" placeholder="请输入推荐理由" clearable></el-input>
-        <el-upload
+        <h2> Recommend</h2>
+        <el-input v-model="food_name" style="width:500px;" placeholder="请输入食物名" clearable></el-input><br /><br />
+        <el-input type="textarea" :autosize="{ minRows: 6}" v-model="food_desc" style="width:500px;" placeholder="请输入推荐理由" clearable></el-input>
+        <br /><br />
+      <el-upload
             list-type="picture"
             action=''
             accept=".jpg, .png"

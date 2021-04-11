@@ -1,11 +1,14 @@
 <template>
 <div>
-  <el-header>Login</el-header>
+  <h1>Log In</h1>
   <el-main>
-    <el-input v-model="user_name" placeholder="请输入用户名" clearable></el-input>
-    <el-input v-model="password" placeholder="请输入密码" clearable show-password></el-input>
-    <el-button type="danger" plain @click="Cancel">取消</el-button>
-    <el-button type="success" plain @click="Login">登录</el-button>
+
+    <img src="../assets/fun2.png" alt="food" style="width:350px; margin-left: 200px" align="left">
+    <br/><br/>
+    <el-input v-model="user_name" style="width:300px;" placeholder="请输入用户名" clearable></el-input><br/><br/>
+    <el-input v-model="password" style="width:300px;" placeholder="请输入密码" clearable show-password></el-input><br/><br/>
+    <el-button type="success" default @click="Cancel">取消</el-button>
+    <el-button type="warning" default @click="Login">登录</el-button>
   </el-main>
 </div>
 </template>

@@ -57,21 +57,7 @@ html {
     }
 }
 
-/* intro */
-#intro{
-    text-align: center;
-    margin-top: 10rem;
-    z-index: 1;
-    height: calc(100% - 4rem);
-}
 
-#intro.hidden{
-    pointer-events: none;
-    transform: translateY(2rem);
-    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
-    opacity: 0;
-    visibility: hidden;
-}
 
 /* Header */
 
