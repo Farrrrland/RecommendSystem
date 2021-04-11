@@ -16,7 +16,7 @@
     <br />
     <div>
       <el-input
-          type="inline"
+          style="width:300px;"
           placeholder="Type something"
           v-model="search_key">
         <i slot="prefix" class="el-input__icon el-icon-search"></i>
@@ -43,10 +43,9 @@
   </div>
 </template>
 
-<style>
-.inline {
-  display: inline-block;
-  width: 130px;
+<style scoped>
+button{
+  box-shadow: inset 0 0 0 2px #212931;
 }
 </style>
 
@@ -59,7 +58,8 @@ export default {
       counter: 0,
       res: {
         stat: 'failed'
-      }
+      },
+      search_key:""
     }
   },
   methods: {
