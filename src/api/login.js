@@ -1,7 +1,9 @@
+import axios from 'axios'
+import router_func from '../common/router'
 var sendUserInfo = function(obj) {
-    this.$axios.post("/api/login", 
+    axios.post("http://111.229.81.92:8000/index/user/loginApi", 
         JSON.stringify({
-            userName: obj.user_name,
+            username: obj.user_name,
             password: obj.password
         }),
         {
@@ -12,12 +14,17 @@ var sendUserInfo = function(obj) {
         }
     )
     .then ((response) => {
-        if (response.data.status=="200") {
-            window.sessionStorage.setItem("usr", obj.user_name)
+        if (response.data[0]==200) {
+            console.log("login success!")
+            // console.log(response)
+            window.sessionStorage.setItem("uid", response.data[1].uid)
             window.sessionStorage.setItem("login", true)
-            console.log(window.sessionStorage.getItem('usr'))
+            console.log(window.sessionStorage.getItem('uid'))
             console.log(window.sessionStorage.getItem('login'))
-            this.$router_func.toHome(obj)
+            router_func.toHome(obj)
+        }else {
+            console.log(response)
+            alert("用户不存在或密码错误")
         }
     })
     .catch (
