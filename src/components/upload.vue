@@ -1,13 +1,11 @@
 <template>
     
-    <div>
-        <h1> upload </h1>
-        <div class="main">
-        <el-input v-model="food_name" placeholder="请输入食物名" clearable></el-input>
-        <br />
-        <br />
-        <el-input type="textarea" :autosize="{ minRows: 7}" v-model="food_desc" placeholder="请输入推荐理由" clearable></el-input>
-        <el-upload
+    <div class = "main">
+        <h2> Recommend</h2>
+        <el-input v-model="food_name" placeholder="请输入食物名" clearable></el-input><br /><br />
+        <el-input type="textarea" :autosize="{ minRows: 6}" v-model="food_desc" placeholder="请输入推荐理由" clearable></el-input>
+        <br /><br />
+      <el-upload
             list-type="picture"
             action=''
             accept=".jpg, .png"
@@ -30,7 +28,6 @@
             <el-button type="danger">取消</el-button>
             <el-button type="success" @click="upLoad()">上传</el-button>
         </el-row>
-        </div>
     </div>
 
 </template>
@@ -102,7 +99,7 @@ export default {
 <style scoped>
 .main{
 	text-align: center;
-	width: 400px;
+	width: 500px;
 	margin: auto;
 }
 </style>
