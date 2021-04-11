@@ -32,7 +32,8 @@ export default [
       name: 'upload', 
       component: upload,
       meta: {
-        isLogin: true
+        // 测试中 ...
+        isLogin: false
       }
     },
     { 

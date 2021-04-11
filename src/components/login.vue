@@ -12,7 +12,7 @@
 
 
 <script>
-// import login_func from '../api/login'
+import login_func from '../api/login'
 
 export default {
   name: 'logIn',
@@ -25,16 +25,9 @@ export default {
   methods: {
     Login() {
       console.log("try to login\n")
-      // if 匹配 则 修改sessionStorage 的 'login' 状态为 true
-      // 待测试模块 login.js
-      // login_func.sendUserInfo(this)
-
-      // 不含数据传输的测试代码
-      window.sessionStorage.setItem("usr", this.user_name)
-      window.sessionStorage.setItem("login", true)
-      console.log(window.sessionStorage.getItem('usr'))
-      console.log(window.sessionStorage.getItem('login'))
-      this.$router_func.toHome(this)
+      login_func.sendUserInfo(this)
+      this.user_name = ""
+      this.password = ""
     },
     Cancel() {
       this.user_name = ""
