@@ -10,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 // Vue.prototype.$axios = axios;
 Vue.prototype.$router_func = router_func;
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios;
 Vue.use(ElementUI)
 
 
