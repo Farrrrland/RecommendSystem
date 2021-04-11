@@ -90,6 +90,7 @@ export default {
         this.dialogVisible = true;
       },
       upLoad() {
+          console.log("上传了")
           upload_func.uploadFood(this)
       }
   }
