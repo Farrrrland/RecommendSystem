@@ -6,6 +6,7 @@ import router_func from './common/router'
 // 引入ElementUI
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import './style/style.css'
 
 // Vue.prototype.$axios = axios;
 Vue.prototype.$router_func = router_func;

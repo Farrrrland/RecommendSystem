@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button v-on:click="increment()"> {{count}} </button>
+<!--    <button v-on:click="increment()"> {{count}} </button>-->
     <router-view/>
   </div>
 </template>

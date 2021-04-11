@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+/* basics */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: inherit;
+    text-decoration: none;
+}
+#map{
+    height: 500px;
+    width:100%;
+}
+body{
+    background-color: #212931;
+    color: #212931;
+}
+
+body, input, select, textarea {
+    font-family: "Merriweather", Georgia, serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 2.375;
+}
+
+h1 {
+    color:white;
+    text-align: center;
+    font-size: 4rem;
+    letter-spacing: 0.075em;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* wrapper */
+#wrapper{
+    background-attachment: fixed;
+    background-image: url("https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_large_assets/b0108eaaf115/assets/img/home/hero_photos/xetgX7L_0aF2pxuTh4gARA.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transition: ease-in-out;
+}
+@media screen and (max-width: 1080px){
+    #wrapper{
+        background-image: url("https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_large_assets/b0108eaaf115/assets/img/home/hero_photos/xetgX7L_0aF2pxuTh4gARA.jpg");
+    }
+}
+
+/* intro */
+#intro{
+    text-align: center;
+    margin-top: 10rem;
+    z-index: 1;
+    height: calc(100% - 4rem);
+}
+
+#intro.hidden{
+    pointer-events: none;
+    transform: translateY(2rem);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Header */
+
+#header {
+    color: #ffffff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    margin-top: -10rem;
+    text-align: center;
+    z-index: 2;
+}
+#header a {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+#header .logo {
+    transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    pointer-events: auto;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 5px;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 2.25rem;
+    letter-spacing: 0.075em;
+    line-height: 1;
+    padding: 1rem 1.75rem;
+    text-transform: uppercase;
+    visibility: visible;
+}
+
+#header .logo:hover {
+    border-color: #18bfef;
+    color: #18bfef;
+}
+
+#header.hidden{
+    pointer-events: none;
+    transform: translateY(2rem);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* nav */
+#nav {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.175);
+    height: 4rem;
+    line-height: 4rem;
+    margin: -2rem auto 0 auto;
+    overflow: hidden;
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    z-index: 2;
+}
+
+#nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: #18bfef;
+}
+
+#nav ul.links {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    letter-spacing: 0.075em;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 0;
+    text-transform: uppercase;
+}
+
+#nav ul.links li a {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    font-size: 0.8rem;
+    outline: none;
+    padding: 0 2rem;
+}
+
+#nav ul.links li a:hover {
+    color: inherit;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#nav ul.links li.active {
+    background-color: #ffffff;
+}
+
+#nav ul.links li.active a {
+    color: #1e252d;
+}
+
+#nav ul.links li.active a:hover {
+    color: #18bfef;
+}
+
+@media screen and (max-width: 540px) {
+    #nav {
+        display: none;
+    }
+}
+
+/* Main */
+
+#main {
+    background-color: #ffffff;
+    position: relative;
+    margin: 0 auto;
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    min-height: 40rem;
+    z-index: 2;
+}
+
+#main > * {
+    padding: 2rem 4rem 2rem 4rem ;
+    border-top: solid 2px #eeeeee;
+    margin: 0;
+}
+
+#main > *:first-child {
+    border-top: 0;
+}
+
+
+#main > .post header.major > .date {
+    margin-top: -2rem;
+}
+
+#main > .post header.major > h1, #main > .post header.major h2 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+}
+
+#main > .posts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+}
+
+#main > .posts > * {
+    flex-shrink: 1;
+    flex-grow: 0;
+    padding: 4rem;
+    width: 50%;
+}
+
+#main > .posts > article {
+    border-color: #eeeeee;
+    border-left-width: 2px;
+    border-style: solid;
+    border-top-width: 2px;
+    text-align: center;
+}
+
+/* Image */
+
+.image {
+    border: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.image img {
+    display: block;
+    width:100%;
+}
+
+.image.left{
+    float: left;
+    margin: 0 2rem 2rem 0;
+    top: 0.75rem;
+    max-width: 40%;
+}
+
+.image.fit {
+    display: block;
+    margin: 2.5rem auto 0 auto;
+    width: 100%;
+}
+
+/* Form  */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.row > * {
+    box-sizing: border-box;
+}
+
+.row > .col-6 {
+    width: 50%;
+}
+
+.row > .col-12 {
+    width: 100%;
+}
+
+.row {
+    margin-top: 0;
+    margin-left: -4rem;
+}
+
+.row > * {
+    padding: 0 0 0 4rem;
+}
+
+.row.gtr-uniform {
+    margin-top: -1.5rem;
+}
+
+.row.gtr-uniform > * {
+    padding-top: 1.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    appearance: none;
+    background: transparent;
+    border-radius: 0;
+    border: solid 2px;
+    border-color: #eeeeee;
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1rem;
+    text-decoration: none;
+    width: 100%;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #18bfef;
+}
+
+/* buttons */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px #212931;
+    color: #212931;
+}
+
+input[type="submit"].primary,
+input[type="reset"].primary,
+input[type="button"].primary,
+button.primary,
+.button.primary {
+    background-color: #212931;
+    box-shadow: none;
+    color: #ffffff;
+}
+button[type="text"] {
+    box-shadow: none;
+    color: #ffffff;
+}
+button[type="box"] {
+    /*box-shadow: none;*/
+    /*color: #ffffff;*/
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    height: 1rem;
+    line-height: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+/* Actions */
+
+ul.actions {
+    display: flex;
+    cursor: default;
+    list-style: none;
+    margin-left: -1rem;
+    padding-left: 0;
+}
+
+ul.actions li {
+    padding: 0 0 0 1rem;
+    vertical-align: middle;
+}
+
+/* Tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    line-height: 1.5;
+    padding: 0.75rem 0.75rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+table thead {
+    border-bottom: solid 2px;
+    border-bottom-color: #eeeeee;
+}
+
+table tbody tr td{
+    padding: 0.75rem 0.75rem;
+}
+
+table tbody tr {
+    border: solid 1px;
+    border-color: #eeeeee;
+
+}
