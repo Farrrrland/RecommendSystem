@@ -1,9 +1,9 @@
 <template>
     
-    <div>
+    <div class = "main">
         <h2> Recommend</h2>
-        <el-input v-model="food_name" style="width:500px;" placeholder="请输入食物名" clearable></el-input><br /><br />
-        <el-input type="textarea" :autosize="{ minRows: 6}" v-model="food_desc" style="width:500px;" placeholder="请输入推荐理由" clearable></el-input>
+        <el-input v-model="food_name" placeholder="请输入食物名" clearable></el-input><br /><br />
+        <el-input type="textarea" :autosize="{ minRows: 6}" v-model="food_desc" placeholder="请输入推荐理由" clearable></el-input>
         <br /><br />
       <el-upload
             list-type="picture"
@@ -15,13 +15,15 @@
             :on-change="getFile"
             :on-preview="handlePictureCardPreview"
             :on-remove="handleUploadRemove"
+            :width="10"
         >
-            <el-button type="primary">选择食物图片</el-button>
+            <br />
+            <el-dialog :visible.sync="dialogVisible" append-to-body>
+                <img width="100%" :src="dialogImageUrl" alt />
+            </el-dialog>
+            <el-button type="info" plain >选择食物图片</el-button>
             <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件</div>
         </el-upload>
-        <el-dialog :visible.sync="dialogVisible" append-to-body>
-            <img width="100%" :src="dialogImageUrl" alt />
-        </el-dialog>
         <el-row>
             <el-button type="danger">取消</el-button>
             <el-button type="success" @click="upLoad()">上传</el-button>
@@ -88,8 +90,17 @@ export default {
         this.dialogVisible = true;
       },
       upLoad() {
+          console.log("上传了")
           upload_func.uploadFood(this)
       }
   }
 }
 </script>
+
+<style scoped>
+.main{
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+</style>

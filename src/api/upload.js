@@ -1,7 +1,7 @@
 import axios from 'axios'
-// http://111.229.81.92:8000index/item/insertApi
+import router_func from '../common/router'
+
 var uploadFood = function(obj) {
-    // 上传文本（待调试）
     axios.post('http://111.229.81.92:8000/index/item/insertApi', {
         fname: obj.food_name,
         uid: window.sessionStorage.getItem('uid'),
@@ -11,7 +11,9 @@ var uploadFood = function(obj) {
     })
     .then(
         res =>  {
+        alert("上传成功")
         console.log(res)
+        router_func.toHome(obj)
     })
     .catch(function (err) {
         console.log(err)

@@ -41,3 +41,10 @@ export default {
 }
 </script>
 
+<style scoped>
+.main{
+	text-align: center;
+	width: 400px;
+	margin: auto;
+}
+</style>

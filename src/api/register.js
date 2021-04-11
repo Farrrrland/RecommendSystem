@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router_func from '../common/router'
 export var sendEmail = function (obj) {
     obj.email_password = Math.random().toString().slice(-6);
     axios.post("http://111.229.81.92:8000/index/user/emailSendApi",
@@ -53,13 +54,15 @@ export var userRegister = function (obj) {
             }
         )
             .then ((response) => {
-                console.log(response.data)
-                if (response.data.status=="200") {
-                    window.sessionStorage.setItem("usr", obj.user_name)
+                console.log(response)
+                if (response.data[0]=="201") {
+                    alert("注册成功")
+                    console.log("usr status:")
+                    window.sessionStorage.setItem("uid", response.data[1].uid)
                     window.sessionStorage.setItem("login", true)
-                    console.log(window.sessionStorage.getItem('usr'))
+                    console.log(window.sessionStorage.getItem('uid'))
                     console.log(window.sessionStorage.getItem('login'))
-                    this.$router_func.toHome(obj)
+                    router_func.toHome(obj)
                 }
             })
             .catch (
