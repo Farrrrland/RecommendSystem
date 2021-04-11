@@ -52,7 +52,7 @@
       <br/>
       <el-input v-model="user_name" style="width:300px;" placeholder="请输入用户名" clearable></el-input><br/><br/>
       <el-input v-model="password" style="width:300px;" placeholder="请输入密码" clearable show-password></el-input><br/><br/>
-      <el-input v-model="ver_code" style="width:300px;" placeholder="请输入验证码" clearable show-password></el-input><br/><br/>
+      <el-input v-model="ver_code" style="width:300px;" placeholder="请输入验证码" clearable></el-input><br/><br/>
       <el-button type="success" default @click="Cancel()">取消</el-button>
       <el-button type="warning" default @click="Register">注册</el-button>
     </el-main>
@@ -76,6 +76,7 @@ name: "register",
   methods: {
     Email() {
       console.log("send email")
+      alert("验证码已发送，请注意查收邮件。")
       sendEmail(this)
       console.log(this.email_address)
     },
