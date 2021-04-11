@@ -5,9 +5,20 @@
       <button type="text" v-on:click="Upload()">Recommend</button>
     </div>
     <div style="float: right;">
+      <button type="text" v-on:click="preLogOut()">Log Out</button>
       <button type="text" v-on:click="User()">Log In</button>
       <el-button type="box" v-on:click="Register()">Sign Up</el-button>
     </div>
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      width="30%">
+      <span>确认注销吗？</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="logOut()">确 定</el-button>
+      </span>
+    </el-dialog>
     <br />
     <br />
     <br />
@@ -51,6 +62,7 @@ button{
 
 <script>
 import search from '../api/getData'
+import $logOut_func from '../common/logOut'
 export default {
   name: 'home',
   data() {
@@ -59,7 +71,8 @@ export default {
       res: {
         stat: 'failed'
       },
-      search_key:""
+      search_key:"",
+      dialogVisible: false
     }
   },
   methods: {
@@ -81,6 +94,19 @@ export default {
     },
     Register() {
       this.$router_func.toRegister(this)
+    },
+    logOut() {
+      this.dialogVisible = false
+      $logOut_func.logOut(this)
+    },
+    preLogOut() {
+      console.log(window.sessionStorage.getItem('login'))
+      if(!window.sessionStorage.getItem('login')) {
+        alert("您还未登录")
+      }
+      else {
+        this.dialogVisible = true
+      }
     }
   }
 }
