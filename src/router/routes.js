@@ -4,6 +4,7 @@ import upload from '@/components/upload'
 import login from '@/components/login'
 import register from '@/components/register'
 import testpage from '@/components/testpage'
+import changePwd from '@/components/changePwd'
 
 
 export default [
@@ -32,7 +33,6 @@ export default [
       name: 'upload', 
       component: upload,
       meta: {
-        // 测试中 ...
         isLogin: true
       }
     },
@@ -59,6 +59,14 @@ export default [
       component: testpage,
       meta: {
         isLogin: false
+      }
+    },
+    { 
+      path: '/changePwd', 
+      name: 'changePwd', 
+      component: changePwd,
+      meta: {
+        isLogin: true
       }
     }
 ]

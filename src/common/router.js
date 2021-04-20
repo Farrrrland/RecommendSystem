@@ -30,11 +30,18 @@ var toRegister = function (obj) {
     console.log("end_register")
 }
 
+var toChangePwd = function (obj) {
+    console.log("start_changepwd")
+    obj.$router.push('./changePwd')
+    console.log("end_changepwd")
+}
+
 // 导出接口
 export default {
     toUser,
     toHome,
     toUpload,
     toLogin,
-    toRegister
+    toRegister,
+    toChangePwd
 }

@@ -53,8 +53,8 @@
       <el-input v-model="user_name" style="width:300px;" placeholder="请输入用户名" clearable></el-input><br/><br/>
       <el-input v-model="password" style="width:300px;" placeholder="请输入密码" clearable show-password></el-input><br/><br/>
       <el-input v-model="ver_code" style="width:300px;" placeholder="请输入验证码" clearable></el-input><br/><br/>
-      <el-button type="success" default @click="Cancel()">取消</el-button>
-      <el-button type="warning" default @click="Register">注册</el-button>
+      <el-button type="warning" default @click="Cancel">取消</el-button>
+      <el-button type="success" default @click="Register">注册</el-button>
     </el-main>
   </div>
 </template>

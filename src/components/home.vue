@@ -5,6 +5,9 @@
       <button type="text" v-on:click="Upload()">Recommend</button>
     </div>
     <div style="float: right;">
+      <!-- testing -->
+      <button type="text" v-on:click="changePwd()">Change Pwd</button>
+      <!-- testing -->
       <button type="text" v-on:click="preLogOut()">Log Out</button>
       <button type="text" v-on:click="User()">Log In</button>
       <el-button type="box" v-on:click="Register()">Sign Up</el-button>
@@ -145,6 +148,10 @@ export default {
     },
     Upload() {
       this.$router_func.toUpload(this)
+    },
+    changePwd() {
+      console.log("here1")
+      this.$router_func.toChangePwd(this)
     },
     search_test() {
       // search.dispalyList(this.data)
