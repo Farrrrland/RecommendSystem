@@ -22,6 +22,10 @@ export var changePwd = function(obj) {
             alert("修改密码成功，请重新登陆！")
             console.log("pwd changed!")
             // console.log(response)
+            window.sessionStorage.clear()
+            console.log("clear!")
+            console.log(window.sessionStorage.getItem('login'))
+            console.log(window.sessionStorage.getItem('uid'))
             router_func.toLogin(obj)
         } else {
             console.log(response)

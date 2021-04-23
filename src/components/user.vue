@@ -1,9 +1,7 @@
 <template>
-  <div id="usr">
-    <h1> user </h1>
-  </div>
+  <div>User {{$router.params.uid }}</div>
 </template>
 
 <script>
-
+console.log(this.$router.params.uid)
 </script>

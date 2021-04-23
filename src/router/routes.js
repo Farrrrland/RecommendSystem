@@ -21,11 +21,12 @@ export default [
       }
     },
     { 
-      path: '/user', 
+      // 动态路由测试中
+      path: '/user:uid?', 
       name: 'user', 
       component: user,
       meta: {
-        isLogin: true
+        isLogin: false
       }
     },
     { 
