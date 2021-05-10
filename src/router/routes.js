@@ -1,5 +1,6 @@
 import home from '@/components/home'
 import user from '@/components/DynamicView/user'
+import info from '@/components/DynamicView/info'
 import upload from '@/components/upload'
 import login from '@/components/login'
 import register from '@/components/register'
@@ -21,7 +22,6 @@ export default [
       }
     },
     { 
-      // 动态路由测试中
       path: '/user/:uid', 
       name: 'user', 
       component: user,
@@ -68,6 +68,14 @@ export default [
       component: changePwd,
       meta: {
         isLogin: true
+      }
+    },
+    { 
+      path: '/info/:fid', 
+      name: 'info', 
+      component: info,
+      meta: {
+        isLogin: false
       }
     }
 ]

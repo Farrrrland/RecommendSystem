@@ -1,13 +1,12 @@
 <template>
   <div class='user'>
-    this is id:{{$route.params.uid}}
+    <h1> Welcome! User {{$route.params.uid}} </h1>
     <br/>
     {{msg}}
   </div>
 </template>
 
 <script>
-// console.log(this.router.params.uid)
 export default {
   data() {
     return {

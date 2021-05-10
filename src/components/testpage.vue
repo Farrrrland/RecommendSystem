@@ -30,6 +30,7 @@ export default {
       })
       .then(data=>{
         this.image = data;
+        console.log(this.image);
       })
       .catch(
         (error) => {

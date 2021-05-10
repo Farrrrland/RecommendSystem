@@ -48,39 +48,25 @@
     <br />
     <br />
     <br />
+    
     <el-row>
-      <el-col :span="8" v-for="(o) in 2" :key="o" :offset="2">
-        <el-card :body-style="{ padding: '0px' }">
-          <img src="../assets/biscuit.png" class="image">
-          <div style="padding: 14px;">
-            <span>Afternoon tea</span><br/>
-            <span>These biscuits are really good for leisure time!</span>
-            <div class="bottom clearfix">
-              <time class="time">{{ currentDate }}</time>
+      <el-col :span="8" v-for="(item,index) in items" :key="index" v-model="items[index]" :offset="2">
+          <el-card :body-style="{ padding: '5px' }">
+            <img :src="item.fimg" class="image" >
+            <div style="padding: 14px;">
+              <span>{{item.fname}}</span><br/>
+              <span>Food id is {{item.fid}}!</span>
+              <div class="bottom clearfix">
+                <time class="time">{{ currentDate }}</time>
+              </div>
             </div>
-          </div>
-        </el-card>
-<!--        <el-card :body-style="{ padding: '0px' }">-->
-<!--          <img src="../assets/coffee.png" class="image">-->
-<!--          <div style="padding: 14px;">-->
-<!--            <span>Coffee</span>-->
-<!--            <div class="bottom clearfix">-->
-<!--              <time class="time">{{ currentDate }}</time>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </el-card>-->
+          </el-card>
+          <br />
       </el-col>
     </el-row>
-    <br />
-    <br />
 
-<!--    <button v-on:click="add()">Add 1</button>-->
-<!--    <p>The button above has been clicked {{ counter }} times.</p>-->
-<!--    <button v-on:click="Home()"> home </button>-->
-<!--    <button v-on:click="User()"> user </button>-->
-<!--    <button v-on:click="Register()"> register </button>-->
-<!--    <button v-on:click="Upload()"> upload </button>-->
-<!--    <button v-on:click="search_test()"> 获取测试数据 </button>-->
+    <br />
+    <br />
   </div>
 </template>
 
@@ -118,21 +104,23 @@ color: #999;
   clear: both
 }
 
+/* .el-row {
+  margin-bottom: 20px;
+} */
+
 </style>
 
 <script>
-import search from '../api/getData'
+import $getData from '../api/getData'
 import $logOut_func from '../common/logOut'
 export default {
   name: 'home',
   data() {
     return {
       counter: 0,
-      res: {
-        stat: 'failed'
-      },
+      items: [],
       search_key:"",
-      currentDate:new Date(),
+      currentDate: new Date(),
       dialogVisible: false,
       usr_bar:""
     }
@@ -156,7 +144,7 @@ export default {
     },
     search_test() {
       // search.dispalyList(this.data)
-      search.searchData(this.data, 'AAAAAB', 'BBBBBB', 1, 7)
+      // $getData.searchData(this.data, 'AAAAAB', 'BBBBBB', 1, 7)
     },
     Register() {
       this.$router_func.toRegister(this)
@@ -183,6 +171,9 @@ export default {
     else {
       this.usr_bar = "Log In"
     }
+    console.log("items = " + this.items)
+    $getData.getList(this)
+    console.log(this.items)
   }
 }
 </script>
