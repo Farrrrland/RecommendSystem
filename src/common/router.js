@@ -2,7 +2,8 @@
 
 var toUser = function (obj) {
     console.log("start_user")
-    obj.$router.push('./user')
+    var path = './user' + window.sessionStorage.getItem('uid')
+    obj.$router.push(path)
     console.log("end_user")
 }
 

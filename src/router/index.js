@@ -3,4 +3,4 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 Vue.use(VueRouter)
 
-export default new VueRouter({routes})	//返回实例
+export default new VueRouter({routes})
