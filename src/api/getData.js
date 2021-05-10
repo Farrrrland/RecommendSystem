@@ -2,9 +2,9 @@ import axios from 'axios'
 
 var getList = function(obj) {
     var uid = ""
-    if(window.sessionStorage.getItem('login') == 'true') {
-        uid = window.sessionStorage.getItem('uid')
-    }
+    // if(window.sessionStorage.getItem('login') == 'true') {
+    //     uid = window.sessionStorage.getItem('uid')
+    // }
     axios.post("http://111.229.81.92:8000/index/item/listApi", 
         JSON.stringify({
             uid: uid

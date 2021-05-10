@@ -34,10 +34,8 @@ var toChangePwd = function (obj) {
 }
 
 var toInfo = function (obj, fid) {
-    console.log("start_info " + fid)
     var path = './info/' + fid
     obj.$router.push(path)
-    console.log("end_info " + fid)
 }
 
 // 导出接口

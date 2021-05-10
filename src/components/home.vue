@@ -1,13 +1,10 @@
 <template>
   <div id="wrapper">
-<!--    <h1> home </h1>-->
     <div style="float: left;">
       <button type="text" v-on:click="Upload()">Recommend</button>
     </div>
     <div style="float: right;">
-      <!-- testing -->
       <button type="text" v-on:click="changePwd()">Change Pwd</button>
-      <!-- testing -->
       <button type="text" v-on:click="preLogOut()">Log Out</button>
       <button type="text" v-on:click="User()">{{usr_bar}}</button>
       <el-button type="box" v-on:click="Register()">Sign Up</el-button>
@@ -52,7 +49,7 @@
     <el-row>
       <el-col :span="8" v-for="(item,index) in items" :key="index" v-model="items[index]" :offset="2">
           <el-card :body-style="{ padding: '5px' }">
-            <img :src="item.fimg" class="image" >
+            <img :src="item.fimg" class="image" @click="showInfo(item.fid)">
             <div style="padding: 14px;">
               <span>{{item.fname}}</span><br/>
               <span>Food id is {{item.fid}}!</span>
@@ -92,6 +89,7 @@ color: #999;
 .image {
   width: 100%;
   display: block;
+  cursor: pointer;
 }
 
 .clearfix:before,
@@ -139,7 +137,6 @@ export default {
       this.$router_func.toUpload(this)
     },
     changePwd() {
-      console.log("here1")
       this.$router_func.toChangePwd(this)
     },
     search_test() {
@@ -162,6 +159,10 @@ export default {
       else {
         this.dialogVisible = true
       }
+    },
+    showInfo(fid) {
+      console.log("show info fid " + fid)
+      this.$router_func.toInfo(this, fid)
     }
   },
   created: function () {
