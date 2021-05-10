@@ -1,6 +1,8 @@
 // 实现了页面跳转相关方法的封装
 
 var toUser = function (obj) {
+    // main.js中貌似没法直接对动态路由做login判断
+    // 于时在跳转方案中实现了登陆状况的判断
     console.log("start_user")
     if (window.sessionStorage.getItem('login') == 'true') {
         console.log(window.sessionStorage.getItem('usr'))

@@ -9,7 +9,7 @@
       <button type="text" v-on:click="changePwd()">Change Pwd</button>
       <!-- testing -->
       <button type="text" v-on:click="preLogOut()">Log Out</button>
-      <button type="text" v-on:click="User()">Log In</button>
+      <button type="text" v-on:click="User()">{{usr_bar}}</button>
       <el-button type="box" v-on:click="Register()">Sign Up</el-button>
     </div>
     <el-dialog
@@ -133,7 +133,8 @@ export default {
       },
       search_key:"",
       currentDate:new Date(),
-      dialogVisible: false
+      dialogVisible: false,
+      usr_bar:""
     }
   },
   methods: {
@@ -163,6 +164,7 @@ export default {
     logOut() {
       this.dialogVisible = false
       $logOut_func.logOut(this)
+      location.reload()
     },
     preLogOut() {
       console.log(window.sessionStorage.getItem('login'))
@@ -172,6 +174,14 @@ export default {
       else {
         this.dialogVisible = true
       }
+    }
+  },
+  created: function () {
+    if(window.sessionStorage.getItem('login') == 'true') {
+      this.usr_bar = "User Home"
+    }
+    else {
+      this.usr_bar = "Log In"
     }
   }
 }
