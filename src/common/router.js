@@ -2,8 +2,17 @@
 
 var toUser = function (obj) {
     console.log("start_user")
-    var path = './user' + window.sessionStorage.getItem('uid')
-    obj.$router.push(path)
+    if (window.sessionStorage.getItem('login') == 'true') {
+        console.log(window.sessionStorage.getItem('usr'))
+        var path = './user/' + window.sessionStorage.getItem('uid')
+        console.log("path =" + path)
+        obj.$router.push(path)
+    } else {
+        console.log("未登录：" + window.sessionStorage.getItem('login'))
+        console.log("start_login")
+        obj.$router.push('./login')
+        console.log("end_login")
+    }
     console.log("end_user")
 }
 
