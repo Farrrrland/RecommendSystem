@@ -19,7 +19,9 @@ var sendUserInfo = function(obj) {
             // console.log(response)
             window.sessionStorage.setItem("uid", response.data[1].uid)
             window.sessionStorage.setItem("login", true)
+            window.sessionStorage.setItem("usrname", obj.user_name)
             console.log(window.sessionStorage.getItem('uid'))
+            console.log(window.sessionStorage.getItem('usrname'))
             console.log(window.sessionStorage.getItem('login'))
             router_func.toHome(obj)
         }else {

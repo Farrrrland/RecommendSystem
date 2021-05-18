@@ -33,8 +33,8 @@ export default {
     Login() {
       console.log("try to login\n")
       login_func.sendUserInfo(this)
-      this.user_name = ""
-      this.password = ""
+      // this.user_name = ""
+      // this.password = ""
     },
     Cancel() {
       this.user_name = ""

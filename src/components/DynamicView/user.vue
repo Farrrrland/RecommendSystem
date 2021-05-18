@@ -1,8 +1,8 @@
 <template>
   <div class='user'>
-    <h1> Welcome! User {{$route.params.uid}} </h1>
+    <h1> {{msg}} </h1>
+    <h2> your uid is {{$route.params.uid}} </h2>
     <br/>
-    {{msg}}
   </div>
 </template>
 
@@ -10,7 +10,15 @@
 export default {
   data() {
     return {
-      msg: "testing testing"
+      msg: ""
+    }
+  },
+  created: function () {
+    if(window.sessionStorage.getItem('login') == 'true') {
+      this.msg = "Welcome, " + window.sessionStorage.getItem('usrname')
+    }
+    else {
+      this.msg = "User status err! Contact administrator!"
     }
   }
 }
