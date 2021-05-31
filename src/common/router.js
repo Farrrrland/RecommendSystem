@@ -38,6 +38,10 @@ var toInfo = function (obj, fid) {
     obj.$router.push(path)
 }
 
+var goBack = function (obj) {
+    obj.$router.back(-1);
+}
+
 // 导出接口
 export default {
     toUser,
@@ -46,5 +50,6 @@ export default {
     toLogin,
     toRegister,
     toChangePwd,
-    toInfo
+    toInfo,
+    goBack
 }

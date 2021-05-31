@@ -169,9 +169,7 @@ export default {
     else {
       this.usr_bar = "Log In"
     }
-    console.log("items = " + this.items)
     $getData.getList(this)
-    console.log(this.items)
   }
 }
 </script>
