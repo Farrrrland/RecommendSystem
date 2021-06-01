@@ -45,7 +45,7 @@ export var userRegister = function (obj) {
             JSON.stringify({
                 username: obj.user_name,
                 password: obj.password,
-                email_address: obj.email_address
+                email: obj.email_address
             }),
             {
                 headers: {
