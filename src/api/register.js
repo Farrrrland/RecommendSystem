@@ -44,7 +44,8 @@ export var userRegister = function (obj) {
         axios.post("http://111.229.81.92:8000/index/user/registerApi",
             JSON.stringify({
                 username: obj.user_name,
-                password: obj.password
+                password: obj.password,
+                email_address: obj.email_address
             }),
             {
                 headers: {
