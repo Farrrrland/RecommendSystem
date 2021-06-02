@@ -43,9 +43,8 @@
         <div class="profile-text" style="margin: 80px" align="left">
           <i class="el-icon-s-custom"></i> 用户名：{{user_name}}
           <br>
-<!--          邮箱：{{email_address}}-->
           <i class="el-icon-message"></i>
-          邮箱：evelyn0414@foxmail.com
+          邮箱：{{email_address}}
           <br>
           <i class="el-icon-star-on"></i> 推荐数：1
 
@@ -69,7 +68,7 @@ export default {
     }
   },
   created: function () {
-    getUserInfo(this)
+    getUserInfo()
     if(window.sessionStorage.getItem('login') == 'true') {
       this.user_name = window.sessionStorage.getItem('usrname')
       this.email_address = window.sessionStorage.getItem('usremail')
