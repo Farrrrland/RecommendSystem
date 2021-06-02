@@ -37,8 +37,8 @@
 </template>
 
 <script>
-// 'url(' + info.img_url + ')'
 import $getData from '../../api/getData'
+import $Like from '../../api/Like'
 import $router_func from '../../common/router'
 export default {
   data() {
@@ -53,7 +53,7 @@ export default {
       $router_func.goBack(this);
     },
     Like() {
-
+      $Like.checkInfo(this, this.$route.params.fid);
     }
   },
   created: function () {

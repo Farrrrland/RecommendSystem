@@ -42,6 +42,10 @@ var goBack = function (obj) {
     obj.$router.back(-1);
 }
 
+var backtoLogin = function (obj) {
+    obj.$router.push('../login')
+}
+
 // 导出接口
 export default {
     toUser,
@@ -51,5 +55,6 @@ export default {
     toRegister,
     toChangePwd,
     toInfo,
-    goBack
+    goBack,
+    backtoLogin
 }

@@ -23,7 +23,7 @@ var sendUserInfo = function(obj) {
             console.log(window.sessionStorage.getItem('uid'))
             console.log(window.sessionStorage.getItem('usrname'))
             console.log(window.sessionStorage.getItem('login'))
-            router_func.toHome(obj)
+            router_func.goBack(obj)
         }else {
             console.log(response)
             alert("用户不存在或密码错误")
