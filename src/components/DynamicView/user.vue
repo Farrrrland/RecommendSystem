@@ -30,7 +30,7 @@
             <span>我的推荐</span>
           </el-menu-item>
           <el-menu-item index="3">
-            <i class="el-icon-star-on"></i>
+            <i class="el-icon-star-off"></i>
             <span>我的收藏</span>
           </el-menu-item>
           <el-menu-item index="4">
@@ -41,17 +41,15 @@
       </el-col>
       <el-col :span=12>
         <div class="profile-text" style="margin: 80px" align="left">
-          用户名：{{msg}}
+          <i class="el-icon-s-custom"></i> 用户名：{{user_name}}
           <br>
+<!--          邮箱：{{email_address}}-->
+          <i class="el-icon-message"></i>
           邮箱：evelyn0414@foxmail.com
           <br>
-          推荐数：1
+          <i class="el-icon-star-on"></i> 推荐数：1
 
         </div>
-
-
-
-
 
 
       </el-col>
@@ -62,19 +60,23 @@
 </template>
 
 <script>
+import {getUserInfo} from '../../api/userInfo.js'
 export default {
   data() {
     return {
-      msg: ""
+      user_name: "",
+      email_address: ""
     }
   },
   created: function () {
+    getUserInfo(this)
     if(window.sessionStorage.getItem('login') == 'true') {
-      this.msg = window.sessionStorage.getItem('usrname')
+      this.user_name = window.sessionStorage.getItem('usrname')
+      this.email_address = window.sessionStorage.getItem('usremail')
     }
-    else {
-      this.msg = "User status err! Contact administrator!"
-    }
+    // else {
+    //   this.msg = "User status err! Contact administrator!"
+    // }
   },
   handleOpen(key, keyPath) {
     console.log(key, keyPath);
