@@ -11,7 +11,8 @@
           <el-button type="info" plain @click="forgetPwd">忘记密码</el-button>
       </template>
     </el-input><br/><br/>
-    <el-button type="success" default @click="Cancel">取消</el-button>
+    <el-button type="box" default @click="Back">返回</el-button>
+    <el-button type="box" default @click="Cancel">取消</el-button>
     <el-button type="warning" default @click="Login">登录</el-button>
   </el-main>
 </div>
@@ -37,6 +38,11 @@ export default {
       // this.password = ""
     },
     Cancel() {
+      this.user_name = ""
+      this.password = ""
+      this.$router_func.toHome(this)
+    },
+    Back() {
       this.user_name = ""
       this.password = ""
       this.$router_func.toHome(this)

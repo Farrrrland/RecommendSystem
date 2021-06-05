@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 var getList = function(obj) {
-    let uid = ""
+    let uid = 0
     if(window.sessionStorage.getItem('login') == 'true') {
         uid = window.sessionStorage.getItem('uid')
     }
-    axios.post("http://111.229.81.92:8000/index/item/listApi", 
+    axios.post("http://111.229.81.92:8000/index/item/recommendApi", 
         JSON.stringify({
             uid: uid
         }),
@@ -26,8 +26,7 @@ var getList = function(obj) {
                 obj.items[i]['fid'] = response.data[1].data[i].fid;
                 obj.items[i]['fimg'] = ""
                 getImagebyIndex(obj.items, response.data[1].data[i].fimage, i);
-                console.log("item " + i + " finished!");
-                console.log("fimg = " + obj.items[i]['fimg'])
+                console.log("item " + i + " has fid " + obj.items[i]['fid']);
             }
         }else {
             console.log(response)
@@ -40,20 +39,49 @@ var getList = function(obj) {
     })
 }
 
-var searchData = function(obj, key, desc, fid, uid) {
-    // 查询某条数据，提供key作为参数
-    axios.post('http://111.229.81.92:8000/index/item/listApi', {
+var searchData = function(obj, key) {
+    let uid = 0
+    if(window.sessionStorage.getItem('login') == 'true') {
+        uid = window.sessionStorage.getItem('uid')
+    }
+    axios.post("http://111.229.81.92:8000/index/item/listApi", 
+        JSON.stringify({
             fname: key,
-            fdesc: desc,
-            fid: fid,
+            fdesc: "",
+            fid: "",
             uid: uid
+        }),
+        {
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            }
+        }
+    )
+    .then ((response) => {
+        if (response.data[0]==200) {
+            var count = response.data[1].result_count
+            if(count == 0) {
+                alert("未找到符合条件的食物，请检查您的输入")
+            }
+            else {
+                alert("符合条件的选项已在屏幕下方列出")
+                obj.items.splice(count);
+                for(var i=0; i<count; i++) {
+                    obj.items[i] = {};
+                    obj.items[i]['fname'] = response.data[1].data[i].fname;
+                    obj.items[i]['fid'] = response.data[1].data[i].fid;
+                    obj.items[i]['fimg'] = ""
+                    getImagebyIndex(obj.items, response.data[1].data[i].fimage, i);
+                    console.log("Search item " + i + " has fid " + obj.items[i]['fid']);
+                }
+            }
+        }else {
+            console.log(response)
+            alert("error")
+        }
     })
-    .then(
-        (response) => {
-            console.log(response);
-            obj = response;
-    })
-    .catch(
+    .catch (
         (error) => {
             console.log(error);
     })

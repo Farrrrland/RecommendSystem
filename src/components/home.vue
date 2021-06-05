@@ -32,7 +32,7 @@
           v-model="search_key">
         <i slot="prefix" class="el-input__icon el-icon-search"></i>
       </el-input>
-      <el-button type="box" icon="el-icon-search">Search</el-button>
+      <el-button type="box" icon="el-icon-search"  @click="search()">Search</el-button>
     </div>
 
     <br />
@@ -49,7 +49,7 @@
     <el-row>
       <el-col :span="8" v-for="(item,index) in items" :key="index" v-model="items[index]" :offset="2">
           <el-card :body-style="{ padding: '5px' }">
-            <img :src="item.fimg" class="image" @click="showInfo(item.fid)">
+            <img :src="item.fimg" class="image" height="325" @click="showInfo(item.fid)">
             <div style="padding: 14px;">
               <span>{{item.fname}}</span><br/>
               <span>Food id is {{item.fid}}!</span>
@@ -136,9 +136,8 @@ export default {
     changePwd() {
       this.$router_func.toChangePwd(this)
     },
-    search_test() {
-      // search.dispalyList(this.data)
-      // $getData.searchData(this.data, 'AAAAAB', 'BBBBBB', 1, 7)
+    search() {
+      $getData.searchData(this, this.search_key)
     },
     Register() {
       this.$router_func.toRegister(this)
