@@ -6,6 +6,8 @@ import login from '@/components/login'
 import register from '@/components/register'
 import testpage from '@/components/testpage'
 import changePwd from '@/components/changePwd'
+import collection from '@/components/collection'
+import recommend from '@/components/recommend'
 
 
 export default [
@@ -69,6 +71,22 @@ export default [
       meta: {
         isLogin: true
       }
+    },
+    {
+        path: '/collection',
+        name: 'collection',
+        component: collection,
+        meta: {
+            isLogin: true
+        }
+    },
+    {
+        path: '/recommend',
+        name: 'recommend',
+        component: recommend,
+        meta: {
+            isLogin: true
+        }
     },
     { 
       path: '/info/:fid', 

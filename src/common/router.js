@@ -29,6 +29,14 @@ var toRegister = function (obj) {
     obj.$router.push('./register')
 }
 
+var toRecommend = function (obj) {
+    obj.$router.push('./recommend')
+}
+
+var toCollection = function (obj) {
+    obj.$router.push('./collection')
+}
+
 var toChangePwd = function (obj) {
     obj.$router.push('./changePwd')
 }
@@ -54,6 +62,8 @@ export default {
     toLogin,
     toRegister,
     toChangePwd,
+    toCollection,
+    toRecommend,
     toInfo,
     goBack,
     backtoLogin
