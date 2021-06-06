@@ -34,16 +34,13 @@
       <el-main class="el-main">
         <h1>My Collection</h1>
         <div class="div-main">
-          <el-row gutter="20" class="row-con">
+          <el-row :gutter="20" class="row-con" justify="space-between">
             <el-col :span="8" v-for="(item,index) in items" :key="index" v-model="items[index]" :offset="2" class="box">
               <el-card class="card">
                 <div class="title"><img :src="item.fimg" @click="showInfo(item.fid)"></div>
                 <div style="padding: 14px;">
                   <span>{{item.fname}}</span><br/>
                   <span>Food id is {{item.fid}}!</span>
-                  <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                  </div>
                 </div>
               </el-card>
             </el-col>
@@ -56,11 +53,18 @@
 
 <script>
 import {getUserInfo} from '../api/userInfo.js'
+import $getData from '../api/getData'
 export default {
   data() {
     return {
       user_name: "",
-      imgList:[]
+      items:[]
+    }
+  },
+  methods:{
+    showInfo(fid) {
+      console.log("show info fid " + fid)
+      this.$router_func.toInfo(this, fid)
     }
   },
   created: function () {
@@ -71,7 +75,7 @@ export default {
     // else {
     //   this.msg = "User status err! Contact administrator!"
     // }
-
+    $getData.getList(this)
   }
 }
 </script>
@@ -121,6 +125,12 @@ export default {
   width: 100%;
   height: 0px;
 }
+.div-main{
+  width:700px;
+  position:relative;
+  top:40px;
+  left:250px;
+}
 .row-con {
   display: flex;
   flex-flow: row wrap;
@@ -130,9 +140,11 @@ export default {
 }
 .box {
   height: 80%;
-  /*overflow-y: auto;*/
   display: flex;
   flex-direction: column;
+}
+.el-card{
+  margin-bottom:20px;
 }
 .title {
   display: flex;
@@ -140,6 +152,6 @@ export default {
   align-items: center;
 }
 .title img {
-  width: 35%;
+  width: 100%;
 }
 </style>
