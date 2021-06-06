@@ -25,7 +25,7 @@
     <br />
     <br />
     <br />
-    <br />
+    <p class="header">Real People, Fake Reviews</p>
     <br />
     <div>
       <el-input
@@ -37,9 +37,6 @@
       <el-button type="box" icon="el-icon-search"  @click="search()">Search</el-button>
     </div>
 
-    <br />
-    <br />
-    <br />
     <br />
     <br />
     <br />
@@ -102,6 +99,13 @@ color: #999;
 
 .clearfix:after {
   clear: both
+}
+
+.header {
+  font: italic 3em Arial, sans-serif;
+  color: aliceblue;
+  font-weight: bold;
+  letter-spacing: 2.5pt;
 }
 
 

@@ -65,7 +65,6 @@ var searchData = function(obj, key) {
                 alert("未找到符合条件的食物，请检查您的输入")
             }
             else {
-                alert("符合条件的选项已在屏幕下方列出")
                 obj.items.splice(count);
                 for(var i=0; i<count; i++) {
                     obj.items[i] = {};
@@ -75,6 +74,7 @@ var searchData = function(obj, key) {
                     getImagebyIndex(obj.items, response.data[1].data[i].fimage, i);
                     console.log("Search item " + i + " has fid " + obj.items[i]['fid']);
                 }
+                alert("符合条件的选项已在屏幕下方列出")
             }
         }else {
             console.log(response)
