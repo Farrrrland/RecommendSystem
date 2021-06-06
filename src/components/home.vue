@@ -4,8 +4,6 @@
       <button type="text" v-on:click="Upload()">Recommend</button>
     </div>
     <div style="float: right;">
-      <button type="text" v-on:click="recommend()">My Recommend</button>
-      <button type="text" v-on:click="collection()">My Collection</button>
       <button type="text" v-on:click="changePwd()">Change Pwd</button>
       <button type="text" v-on:click="preLogOut()">Log Out</button>
       <button type="text" v-on:click="User()">{{usr_bar}}</button>
@@ -138,12 +136,6 @@ export default {
     },
     Upload() {
       this.$router_func.toUpload(this)
-    },
-    recommend() {
-      this.$router_func.toRecommend(this)
-    },
-    collection() {
-      this.$router_func.toCollection(this)
     },
     changePwd() {
       this.$router_func.toChangePwd(this)

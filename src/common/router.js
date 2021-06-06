@@ -5,7 +5,7 @@ var toUser = function (obj) {
     // 于时在跳转方案中实现了登陆状况的判断
     if (window.sessionStorage.getItem('login') == 'true') {
         console.log(window.sessionStorage.getItem('uid'))
-        var path = './user/' + window.sessionStorage.getItem('uid')
+        var path = '/user/' + window.sessionStorage.getItem('uid')
         obj.$router.push(path)
     } else {
         console.log("未登录：" + window.sessionStorage.getItem('login'))
@@ -14,7 +14,7 @@ var toUser = function (obj) {
 }
 
 var toHome = function (obj) {
-    obj.$router.push('./home')
+    obj.$router.push('/home')
 }
 
 var toUpload = function (obj) {
@@ -30,11 +30,11 @@ var toRegister = function (obj) {
 }
 
 var toRecommend = function (obj) {
-    obj.$router.push('./recommend')
+    obj.$router.push('/recommend')
 }
 
 var toCollection = function (obj) {
-    obj.$router.push('./collection')
+    obj.$router.push('/collection')
 }
 
 var toChangePwd = function (obj) {
