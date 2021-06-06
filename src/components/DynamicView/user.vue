@@ -14,8 +14,8 @@
         <br>
       </el-col>
       <el-col :span="4">
-        <img src="../../assets/avatar.jpg" alt="avatar" style="width:150px; margin: 50px" align="left"><br>
-        <h3>{{msg}} 的个人主页</h3>
+        <img :src="avator_url" alt="avatar" style="width:150px; margin: 50px" align="left"><br>
+        <h3>{{user_name}} 的个人主页</h3>
         <el-menu
             default-active="1"
             class="el-menu-vertical-demo"
@@ -64,10 +64,14 @@ export default {
   data() {
     return {
       user_name: "",
-      email_address: ""
+      email_address: "",
+      avator_url: "https://ui-avatars.com/api/",
     }
   },
   created: function () {
+    this.avator_url += window.sessionStorage.getItem('usrname')
+    this.avator_url += "/64/6d94bb/ffffff"
+    console.log("avator_url:" + this.avator_url)
     getUserInfo()
     if(window.sessionStorage.getItem('login') == 'true') {
       this.user_name = window.sessionStorage.getItem('usrname')
