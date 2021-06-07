@@ -39,17 +39,94 @@ var getList = function(obj) {
     })
 }
 
-var searchData = function(obj, key) {
+var getCollection = function(obj) {
+    let uid = 0
+    if(window.sessionStorage.getItem('login') == 'true') {
+        uid = window.sessionStorage.getItem('uid')
+    }
+    axios.post("http://111.229.81.92:8000/index/favourite/listApi", 
+        JSON.stringify({
+            uid: uid
+        }),
+        {
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            }
+        }
+    )
+    .then ((response) => {
+        if (response.data[0]==200) {
+            console.log("response is as follows")
+            console.log(response)
+            var count = response.data[1].result_count
+            obj.items.splice(count);
+            for(var i=0; i<count; i++) {
+                obj.items[i] = {};
+                obj.items[i]['fname'] = response.data[1].data[i].fname;
+                obj.items[i]['fid'] = response.data[1].data[i].fid;
+                obj.items[i]['fimg'] = ""
+                getImagebyIndex(obj.items, response.data[1].data[i].fimage, i);
+                console.log("item " + i + " has fid " + obj.items[i]['fid']);
+            }
+        }else {
+            console.log(response)
+            alert("error")
+        }
+    })
+    .catch (
+        (error) => {
+            console.log(error);
+    })
+}
+
+var getRecommend = function(obj) {
     let uid = 0
     if(window.sessionStorage.getItem('login') == 'true') {
         uid = window.sessionStorage.getItem('uid')
     }
     axios.post("http://111.229.81.92:8000/index/item/listApi", 
         JSON.stringify({
-            fname: key,
-            fdesc: "",
-            fid: "",
             uid: uid
+        }),
+        {
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            }
+        }
+    )
+    .then ((response) => {
+        if (response.data[0]==200) {
+            var count = response.data[1].result_count
+            obj.items.splice(count);
+            for(var i=0; i<count; i++) {
+                obj.items[i] = {};
+                obj.items[i]['fname'] = response.data[1].data[i].fname;
+                obj.items[i]['fid'] = response.data[1].data[i].fid;
+                obj.items[i]['fimg'] = ""
+                getImagebyIndex(obj.items, response.data[1].data[i].fimage, i);
+                console.log("item " + i + " has fid " + obj.items[i]['fid']);
+            }
+        }else {
+            console.log(response)
+            alert("error")
+        }
+    })
+    .catch (
+        (error) => {
+            console.log(error);
+    })
+}
+
+var searchData = function(obj, key) {
+    // let uid = 0
+    // if(window.sessionStorage.getItem('login') == 'true') {
+    //     uid = window.sessionStorage.getItem('uid')
+    // }
+    axios.post("http://111.229.81.92:8000/index/item/listApi", 
+        JSON.stringify({
+            fname: key,
         }),
         {
             headers: {
@@ -87,11 +164,10 @@ var searchData = function(obj, key) {
     })
 }
 
-var getInfo = function(obj, fid, uid) {
+var getInfo = function(obj, fid) {
     axios.post("http://111.229.81.92:8000/index/item/listApi", 
         JSON.stringify({
-            fid: fid,
-            uid: uid
+            fid: fid
         }),
         {
             headers: {
@@ -171,5 +247,7 @@ export default {
     getList,
     searchData,
     getInfo,
-    getImage
+    getImage,
+    getCollection,
+    getRecommend
 }

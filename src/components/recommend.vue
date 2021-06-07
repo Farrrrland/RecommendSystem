@@ -94,7 +94,7 @@ export default {
     // else {
     //   this.msg = "User status err! Contact administrator!"
     // }
-    $getData.getList(this)
+    $getData.getRecommend(this)
   }
 }
 </script>

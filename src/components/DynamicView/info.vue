@@ -58,11 +58,11 @@ export default {
   },
   created: function () {
     console.log("fid = " + this.$route.params.fid);
-    let uid = "";
-    if(window.sessionStorage.getItem('login') == 'true') {
-      uid = window.sessionStorage.getItem('uid')
-    }
-    $getData.getInfo(this, this.$route.params.fid, uid);
+    // let uid = "";
+    // if(window.sessionStorage.getItem('login') == 'true') {
+    //   uid = window.sessionStorage.getItem('uid')
+    // }
+    $getData.getInfo(this, this.$route.params.fid);
     console.log("img = " + this.img_url);
   }
 }

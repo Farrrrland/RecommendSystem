@@ -61,6 +61,7 @@ export var userRegister = function (obj) {
                     console.log("usr status:")
                     window.sessionStorage.setItem("uid", response.data[1].uid)
                     window.sessionStorage.setItem("login", true)
+                    window.sessionStorage.setItem("usrname", obj.user_name)
                     window.sessionStorage.setItem("usremail", obj.email_address)
                     console.log(window.sessionStorage.getItem('uid'))
                     console.log(window.sessionStorage.getItem('login'))
