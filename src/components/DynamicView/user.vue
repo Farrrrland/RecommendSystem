@@ -38,7 +38,7 @@
         <h1> Home Page </h1>
         <div class="div-main">
           <el-row class="tac">
-            <el-col :span=12>
+            <el-col :span=16>
               <div class="profile-text" style="margin: 80px" align="left">
                 <i class="el-icon-s-custom"></i> 用户名：{{user_name}}
                 <br>
@@ -87,11 +87,12 @@ export default {
     this.avator_url += window.sessionStorage.getItem('usrname')
     this.avator_url += "/64/6d94bb/ffffff"
     console.log("avator_url:" + this.avator_url)
-    getUserInfo()
-    if(window.sessionStorage.getItem('login') == 'true') {
-      this.user_name = window.sessionStorage.getItem('usrname')
-      this.email_address = window.sessionStorage.getItem('usremail')
-    }
+    getUserInfo(this)
+    // if(window.sessionStorage.getItem('login') == 'true') {
+    //   this.user_name = window.sessionStorage.getItem('usrname')
+    //   this.email_address = window.sessionStorage.getItem('usremail')
+    //   console.log(this.email_address)
+    // }
     // else {
     //   this.msg = "User status err! Contact administrator!"
     // }
