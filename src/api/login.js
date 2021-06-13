@@ -37,7 +37,7 @@ var sendUserInfo = function(obj) {
     })
 }
 
-export function userLogin(obj) {
+module.exports =  function userLogin(obj) {
     axios.post("http://111.229.81.92:8000/index/user/loginApi",
         JSON.stringify({
             username: obj.user_name,

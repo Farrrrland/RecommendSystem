@@ -12,3 +12,17 @@ test('evelyn login', ()=>{
     expect(userLogin(obj)).toBe(1)
 
 })
+
+let login = require("../src/api/login.js")
+
+test('evelyn login', (done)=>{
+    var obj = {}
+    obj.user_name = 'evelyn'
+    obj.password = 'evelyn'
+    login(obj, (result) =>{
+        expect(result).toBe(1)
+        done()
+    })
+
+
+})
