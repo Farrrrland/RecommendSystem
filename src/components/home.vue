@@ -51,9 +51,9 @@
             <img :src="item.fimg" class="image" height="325" @click="showInfo(item.fid)">
             <div style="padding: 14px;">
               <span>{{item.fname}}</span><br/>
-              <span>Food id is {{item.fid}}!</span>
+<!--              <span>Food id is {{item.fid}}!</span>-->
               <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
+<!--                <time class="time">{{ currentDate }}</time>-->
               </div>
             </div>
           </el-card>
