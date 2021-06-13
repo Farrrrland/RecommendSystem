@@ -34,13 +34,13 @@ name: "register",
       console.log(this.ver_new_password)
       console.log("checking...")
       if (this.new_password != this.ver_new_password) {
-        alert("两次输入的密码不一致！")
+        this.$message.error("两次输入的密码不一致！")
         console.log("Cancel1")
         // this.old_password = ""
         this.new_password = ""
         this.ver_new_password = ""
       } else if (this.new_password == this.old_password) {
-        alert("新密码不能与旧密码相同！")
+        this.$message.error("新密码不能与旧密码相同！")
         console.log("Cancel2")
         // this.old_password = ""
         this.new_password = ""

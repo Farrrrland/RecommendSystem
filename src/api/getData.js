@@ -30,7 +30,7 @@ var getList = function(obj) {
             }
         }else {
             console.log(response)
-            alert("error")
+            console.log("error")
         }
     })
     .catch (
@@ -71,7 +71,7 @@ var getCollection = function(obj) {
             }
         }else {
             console.log(response)
-            alert("error")
+            console.log("error")
         }
     })
     .catch (
@@ -112,7 +112,7 @@ var getRecommend = function(obj) {
             }
         }else {
             console.log(response)
-            alert("error")
+            console.log("error")
         }
     })
     .catch (
@@ -157,7 +157,7 @@ var searchData = function(obj, key) {
             }
         }else {
             console.log(response)
-            alert("error")
+            console.log("error")
         }
     })
     .catch (
@@ -194,7 +194,7 @@ var getInfo = function(obj, fid) {
                 // getImage(obj["img"], response.data[1].data[0].fimage);
                 // console.log("obj is " + obj);
             }else {
-                alert("error")
+                console.log("error")
             }
     })
     .catch(

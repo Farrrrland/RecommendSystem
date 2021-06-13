@@ -19,7 +19,7 @@ export var changePwd = function(obj) {
     )
     .then ((response) => {
         if (response.data[0]==200) {
-            alert("修改密码成功，请重新登陆！")
+            obj.$message.success("修改密码成功，请重新登陆！")
             console.log("pwd changed!")
             // console.log(response)
             window.sessionStorage.clear()
@@ -29,7 +29,10 @@ export var changePwd = function(obj) {
             router_func.toLogin(obj)
         } else {
             console.log(response)
-            alert("原密码错误")
+            obj.$message.error("原密码错误")
+            obj.old_password = ""
+            obj.new_password = ""
+            obj.ver_new_password = ""
         }
     })
     .catch (
