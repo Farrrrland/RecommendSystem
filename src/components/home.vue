@@ -29,7 +29,9 @@
       <el-input
           style="width:300px;"
           placeholder="Type something"
-          v-model="search_key">
+          v-model="search_key"
+          @input="search_key=search_key.replace(/\s+/, '')"
+          >
         <i slot="prefix" class="el-input__icon el-icon-search"></i>
       </el-input>
       <el-button type="box" icon="el-icon-search"  @click="search()">Search</el-button>
@@ -141,7 +143,11 @@ export default {
       this.$router_func.toChangePwd(this)
     },
     search() {
-      $getData.searchData(this, this.search_key)
+      if (this.search_key == "") {
+        $getData.getList(this)
+      } else {
+        $getData.searchData(this, this.search_key)
+      }
     },
     Register() {
       this.$router_func.toRegister(this)

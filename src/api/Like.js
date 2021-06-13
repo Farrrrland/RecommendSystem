@@ -22,10 +22,11 @@ var checkInfo = function (obj, fid) {
                 let cnt = response.data[1].result_count;
                 console.log(cnt);
                 if(cnt == 0) {
+                    obj.$message.success("成功添加到收藏")
                     addLike(fid, uid);
                 }
                 else {
-                    alert("您已收藏过该条目")
+                    obj.$message.error("您已收藏过该条目")
                 }
             }else {
                 alert("unknown error")
@@ -64,6 +65,7 @@ var addLike = function (fid, uid) {
             console.log("success, status: " + response.data[1].operation);
         }else if (response.data[0]==400) {
             console.log("error: " + response.data[1]['msg']);
+            alert("fail to add favourite")
         }else {
             alert("unknown error")
         }

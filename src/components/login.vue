@@ -5,8 +5,8 @@
 
     <img src="../assets/fun2.png" alt="food" style="width:350px; margin-left: 200px" align="left">
     <br/><br/>
-    <el-input v-model="user_name" style="width:300px;" placeholder="请输入用户名" clearable></el-input><br/><br/>
-    <el-input v-model="password" style="width:300px;" placeholder="请输入密码" clearable show-password>
+    <el-input v-model="user_name" @input="user_name=user_name.replace(/\s+/, '')" style="width:300px;" placeholder="请输入用户名" clearable></el-input><br/><br/>
+    <el-input v-model="password" @input="password=password.replace(/\s+/, '')" style="width:300px;" placeholder="请输入密码" clearable show-password>
       <template slot="append">
           <el-button type="info" plain @click="forgetPwd">忘记密码</el-button>
       </template>
@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     Login() {
+      console.log("user name = " + this.user_name)
       console.log("try to login\n")
       login_func.sendUserInfo(this)
       // this.user_name = ""

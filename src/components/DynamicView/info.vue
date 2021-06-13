@@ -53,6 +53,7 @@ export default {
       $router_func.goBack(this);
     },
     Like() {
+      
       $Like.checkInfo(this, this.$route.params.fid);
     }
   },

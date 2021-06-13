@@ -16,7 +16,7 @@ var sendUserInfo = function(obj) {
     .then ((response) => {
         if (response.data[0]==200) {
             console.log("login success!")
-            // console.log(response)
+            console.log(response)
             window.sessionStorage.setItem("uid", response.data[1].uid)
             window.sessionStorage.setItem("login", true)
             window.sessionStorage.setItem("usrname", obj.user_name)

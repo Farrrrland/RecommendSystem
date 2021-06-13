@@ -139,7 +139,7 @@ var searchData = function(obj, key) {
         if (response.data[0]==200) {
             var count = response.data[1].result_count
             if(count == 0) {
-                alert("未找到符合条件的食物，请检查您的输入")
+                obj.$message.error("未找到符合条件的食物，请检查您的输入")
             }
             else {
                 obj.items.splice(count);
@@ -151,7 +151,7 @@ var searchData = function(obj, key) {
                     getImagebyIndex(obj.items, response.data[1].data[i].fimage, i);
                     console.log("Search item " + i + " has fid " + obj.items[i]['fid']);
                 }
-                alert("符合条件的选项已在屏幕下方列出")
+                obj.$message.success("符合条件的选项已在屏幕下方列出")
             }
         }else {
             console.log(response)

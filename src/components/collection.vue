@@ -43,7 +43,8 @@
                 <div class="title"><img :src="item.fimg" @click="showInfo(item.fid)"></div>
                 <div style="padding: 14px;">
                   <span>{{item.fname}}</span><br/>
-                  <span>Food id is {{item.fid}}!</span>
+                  <span>Food id is {{item.fid}}!</span><br/>
+                  <el-button type="info" icon="el-icon-delete" circle @click="deleteCol(item.fid, item.fname)"></el-button>
                 </div>
               </el-card>
             </el-col>
@@ -57,6 +58,7 @@
 <script>
 import {getUserInfo} from '../api/userInfo.js'
 import $getData from '../api/getData'
+import $delete from '../api/delete'
 export default {
   data() {
     return {
@@ -81,6 +83,17 @@ export default {
     },
     collection() {
       this.$router_func.toCollection(this)
+    },
+    deleteCol(fid, fname) {
+      var del = confirm("确认删除" + fname + "吗？删除后不可恢复")
+      if (del == true) {
+        console.log("delete recommend id " + fid)
+        let uid = window.sessionStorage.getItem('uid')
+        console.log("uid = " + uid)
+        $delete.deleteCollection(fid, uid)
+      } else {
+        this.$message.error("您取消了操作")
+      }
     }
   },
   created: function () {
