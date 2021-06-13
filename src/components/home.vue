@@ -160,7 +160,7 @@ export default {
     preLogOut() {
       console.log(window.sessionStorage.getItem('login'))
       if(!window.sessionStorage.getItem('login')) {
-        alert("您还未登录")
+        this.$message.error("您还未登录")
       }
       else {
         this.dialogVisible = true

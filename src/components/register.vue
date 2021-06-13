@@ -38,7 +38,7 @@ name: "register",
   methods: {
     Email() {
       console.log("send email")
-      alert("验证码已发送，请注意查收邮件。")
+      this.$message.success("验证码已发送，请注意查收邮件。")
       sendEmail(this)
       console.log(this.email_address)
     },

@@ -11,7 +11,7 @@ var uploadFood = function(obj) {
     })
     .then(
         res =>  {
-        alert("上传成功")
+        obj.$message.success("上传成功")
         console.log(res)
         router_func.toHome(obj)
     })

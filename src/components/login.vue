@@ -41,7 +41,7 @@ export default {
     Cancel() {
       this.user_name = ""
       this.password = ""
-      this.$router_func.toHome(this)
+      // this.$router_func.toHome(this)
     },
     Back() {
       this.user_name = ""
