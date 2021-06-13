@@ -1,0 +1,190 @@
+<template>
+  <div>
+    <el-container>
+      <el-aside width="400px" class="el-aside">
+        <el-col :span="16" class="aside">
+          <img :src="avator_url" alt="avatar" style="width:150px; margin: 50px" align="left"><br>
+          <h3>{{user_name}} 的个人主页</h3>
+          <div class="mymenu">
+            <el-menu
+                default-active="1"
+                class="el-menu-vertical-demo"
+                @open="handleOpen"
+                @close="handleClose">
+              <el-menu-item index="1" v-on:click="User()">
+                <i class="el-icon-s-custom"></i>
+                <span>个人信息</span>
+              </el-menu-item>
+              <el-menu-item index="2" v-on:click="recommend()">
+                <i class="el-icon-dessert"></i>
+                <span>我的推荐</span>
+              </el-menu-item>
+              <el-menu-item index="3" v-on:click="collection()">
+                <i class="el-icon-star-off"></i>
+                <span>我的收藏</span>
+              </el-menu-item>
+              <!-- <el-menu-item index="4">
+                <i class="el-icon-setting"></i>
+                <span>设置</span>
+              </el-menu-item> -->
+            </el-menu>
+          </div>
+        </el-col>
+        <div class="home-icon">
+          <el-button icon="el-icon-s-home" v-on:click="Home()"></el-button>
+        </div>
+      </el-aside>
+      <el-main class="el-main">
+        <h1> Home Page </h1>
+        <div class="div-main">
+          <el-row class="tac">
+            <el-col :span=16>
+              <div class="profile-text" style="margin: 80px" align="left">
+                <i class="el-icon-s-custom"></i> 用户名：{{user_name}}
+                <br>
+                <i class="el-icon-message"></i>
+                邮箱：{{email_address}}
+                <br>
+                <i class="el-icon-star-on"></i> 推荐数：1
+
+              </div>
+
+
+            </el-col>
+          </el-row>
+        </div>
+      </el-main>
+    </el-container>
+  </div>
+
+</template>
+
+<script>
+import {getUserInfo} from '../../api/userInfo.js'
+export default {
+  data() {
+    return {
+      user_name: "",
+      email_address: "",
+      avator_url: "https://ui-avatars.com/api/",
+    }
+  },
+  methods:{
+    Home() {
+      this.$router_func.toHome(this)
+    },
+    User() {
+      this.$router_func.toUser(this)
+    },
+    recommend() {
+      this.$router_func.toRecommend(this)
+    },
+    collection() {
+      this.$router_func.toCollection(this)
+    }
+  },
+  created: function () {
+    this.avator_url += window.sessionStorage.getItem('usrname')
+    this.avator_url += "/64/6d94bb/ffffff"
+    console.log("avator_url:" + this.avator_url)
+    getUserInfo(this)
+    // if(window.sessionStorage.getItem('login') == 'true') {
+    //   this.user_name = window.sessionStorage.getItem('usrname')
+    //   this.email_address = window.sessionStorage.getItem('usremail')
+    //   console.log(this.email_address)
+    // }
+    // else {
+    //   this.msg = "User status err! Contact administrator!"
+    // }
+  },
+  handleOpen(key, keyPath) {
+    console.log(key, keyPath);
+  },
+  handleClose(key, keyPath) {
+    console.log(key, keyPath);
+  }
+}
+
+
+</script>
+
+<style scoped>
+.el-aside {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgb(255,241,239);
+  background: linear-gradient(0deg, rgba(255,241,239,1) 0%, rgba(233,249,255,1) 50%, rgba(255,230,196,1) 100%);
+}
+.el-main{
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+}
+.aside{
+  position: absolute;
+  left:50px;
+}
+.mymenu{
+  width: 50%;
+  margin: auto;
+}
+.mymenu /deep/ .el-menu--fit{
+  padding: 20px;
+}
+.mymenu /deep/  .el-menu, .el-menu__expanded-cell {
+  background-color: transparent;
+}
+
+.mymenu /deep/ .el-menu tr {
+  background-color: transparent!important;
+}
+.mymenu /deep/  .el-menu--enable-row-transition .el-menu__body td, .el-menu .cell{
+  background-color: transparent;
+}
+.el-menu::before {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0px;
+}
+.home-icon{
+  position:relative;
+  top:540px;
+  left:-150px;
+}
+.div-main{
+  width:700px;
+  position:relative;
+  top:40px;
+  left:250px;
+}
+.row-con {
+  display: flex;
+  flex-flow: row wrap;
+}
+.row-con .card {
+  height: 100%;
+}
+.box {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.el-card{
+  margin-bottom:20px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title img {
+  width: 100%;
+}
+</style>
