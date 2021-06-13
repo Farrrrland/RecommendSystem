@@ -23,10 +23,10 @@
                 <i class="el-icon-star-off"></i>
                 <span>我的收藏</span>
               </el-menu-item>
-              <el-menu-item index="4">
+              <!-- <el-menu-item index="4">
                 <i class="el-icon-setting"></i>
                 <span>设置</span>
-              </el-menu-item>
+              </el-menu-item> -->
             </el-menu>
           </div>
         </el-col>
@@ -44,7 +44,7 @@
                 <div style="padding: 14px;">
                   <span>{{item.fname}}</span><br/>
                   <span>Food id is {{item.fid}}!</span><br/>
-                  <el-button type="info" icon="el-icon-delete" circle @click="deleteCol(item.fid, item.fname)"></el-button>
+                  <i class="el-icon-delete" @click="deleteCol(item.fid, item.fname)"></i>
                 </div>
               </el-card>
             </el-col>

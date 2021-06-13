@@ -98,6 +98,8 @@ var getRecommend = function(obj) {
     )
     .then ((response) => {
         if (response.data[0]==200) {
+            console.log("res as follows")
+            console.log(response)
             var count = response.data[1].result_count
             obj.items.splice(count);
             for(var i=0; i<count; i++) {

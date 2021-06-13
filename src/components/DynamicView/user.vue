@@ -23,10 +23,10 @@
                 <i class="el-icon-star-off"></i>
                 <span>我的收藏</span>
               </el-menu-item>
-              <el-menu-item index="4">
+              <!-- <el-menu-item index="4">
                 <i class="el-icon-setting"></i>
                 <span>设置</span>
-              </el-menu-item>
+              </el-menu-item> -->
             </el-menu>
           </div>
         </el-col>
