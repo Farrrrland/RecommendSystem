@@ -53,7 +53,12 @@ let userLogin =  function (obj, func) {
     )
         .then ((response) => {
             console.log("here2")
-            func(response)
+            if (response.data[0]==200) {
+                func(1)
+            }else{
+                func(0)
+            }
+            // func(response)
         })
         .catch (
             (error) => {

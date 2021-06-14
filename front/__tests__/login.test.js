@@ -13,7 +13,8 @@ test('evelyn login', done =>  {
     function callback_func (res) {
         console.log("got feedback")
         // console.log(res)
-        expect(res.data[0]).toBe(200)
+        // expect(res.data[0]).toBe(200)
+        expect(res).toBe(1)
         done()
     }
     $login_func.userLogin(obj, callback_func)
