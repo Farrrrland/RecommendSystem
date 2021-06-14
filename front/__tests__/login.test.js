@@ -1,28 +1,20 @@
 import {sum} from '../src/api/add'
-import {userLogin} from '../src/api/login'
+import $login_func from '../src/api/login'
 
 test('测试sum函数 1 加 2 等于 3',()=>{
     expect(sum(1,2)).toBe(3)
 })
 
-test('evelyn login', ()=>{
-    var obj = {}
-    obj.user_name = 'evelyn'
-    obj.password = 'evelyn'
-    expect(userLogin(obj)).toBe(1)
-
-})
-
-let login = require("../src/api/login.js")
-
-test('evelyn login', (done)=>{
-    var obj = {}
-    obj.user_name = 'evelyn'
-    obj.password = 'evelyn'
-    login(obj, (result) =>{
-        expect(result).toBe(1)
+test('evelyn login', done =>  {
+    var obj = {
+        user_name: 'evelyn',
+        password: 'evelyn'
+    }
+    function callback_func (res) {
+        console.log("got feedback")
+        // console.log(res)
+        expect(res.data[0]).toBe(200)
         done()
-    })
-
-
+    }
+    $login_func.userLogin(obj, callback_func)
 })
