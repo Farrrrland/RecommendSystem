@@ -37,7 +37,8 @@ var sendUserInfo = function(obj) {
     })
 }
 
-module.exports =  function userLogin(obj) {
+let userLogin =  function (obj, func) {
+    console.log("here1")
     axios.post("http://111.229.81.92:8000/index/user/loginApi",
         JSON.stringify({
             username: obj.user_name,
@@ -51,20 +52,20 @@ module.exports =  function userLogin(obj) {
         }
     )
         .then ((response) => {
-            if (response.data[0]==200) {
-                return 1
-            }else {
-                return 0
-            }
+            console.log("here2")
+            func(response)
         })
         .catch (
             (error) => {
                 console.log(error);
             })
+            
+    console.log("here3")
 }
 
 
 
 export default {
-    sendUserInfo
+    sendUserInfo,
+    userLogin
 }
