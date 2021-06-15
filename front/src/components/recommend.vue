@@ -44,6 +44,7 @@
                 <div style="padding: 14px;">
                   <span>{{item.fname}}</span><br/>
                   <span>Food id is {{item.fid}}!</span><br/>
+                  <i class="el-icon-edit" circle @click="ModifyRec(item.fid)"></i>
                   <i class="el-icon-delete" circle @click="deleteRec(item.fid, item.fname)"></i>
                 </div>
               </el-card>
@@ -92,6 +93,10 @@ export default {
       } else {
         this.$message.error("您取消了操作")
       }
+    },
+    ModifyRec(fid) {
+      console.log(fid)
+      this.$router_func.toModify(this, fid)
     }
   },
   created: function () {

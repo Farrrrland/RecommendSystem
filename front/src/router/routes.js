@@ -1,6 +1,7 @@
 import home from '@/components/home'
 import user from '@/components/DynamicView/user'
 import info from '@/components/DynamicView/info'
+import modify from '@/components/DynamicView/modify'
 import upload from '@/components/upload'
 import login from '@/components/login'
 import register from '@/components/register'
@@ -94,6 +95,14 @@ export default [
       component: info,
       meta: {
         isLogin: false
+      }
+    },
+    { 
+      path: '/modify/:fid', 
+      name: 'modify', 
+      component: modify,
+      meta: {
+        isLogin: true
       }
     }
 ]
