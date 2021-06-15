@@ -1,11 +1,11 @@
-import $func from '../src/api/delete'
+import $func from '../src/api/test/delete'
 
 describe("test deleteLike logic", ()=> {
 
     test('success', done =>  {
         var obj = {
-            // uid: '6',
-            uid: '4',
+            uid: '6',
+            // uid: '4',
             fid: '39'
         }
         function callback_func (res) {

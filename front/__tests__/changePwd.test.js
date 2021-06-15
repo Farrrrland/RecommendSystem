@@ -1,4 +1,4 @@
-import $func from '../src/api/changePwd'
+import $func from '../src/api/test/changePwd'
 
 describe("test changePwd logic", ()=> {
 
@@ -39,19 +39,19 @@ describe("test changePwd logic", ()=> {
         $func.changePassword(obj, callback_func)
     })
 
-    // test('change success', done =>  {
-    //     var obj = {
-    //         uid: '17',
-    //         old_password:'APITest',
-    //         new_password: 'PasswordChangeTest'
-    //         // old_password:'PasswordChangeTest',
-    //         // new_password: 'APITest'
-    //     }
-    //     function callback_func (res) {
-    //         expect(res).toBe(1)
-    //         done()
-    //     }
-    //     $func.changePassword(obj, callback_func)
-    // })
+    test('change success', done =>  {
+        var obj = {
+            uid: '17',
+            // old_password:'APITest',
+            // new_password: 'PasswordChangeTest'
+            old_password:'PasswordChangeTest',
+            new_password: 'APITest'
+        }
+        function callback_func (res) {
+            expect(res).toBe(1)
+            done()
+        }
+        $func.changePassword(obj, callback_func)
+    })
 })
 

@@ -1,6 +1,18 @@
-import $func from '../src/api/like'
+import $func from '../src/api/test/like'
 
 describe("test addLike logic", ()=> {
+    test('success', done =>  {
+        var obj = {
+            uid: '4',
+            // uid: '6',
+            fid: '39'
+        }
+        function callback_func (res) {
+            expect(res).toBe(1)
+            done()
+        }
+        $func.addToLike(obj, callback_func)
+    })
     test('no uid', done =>  {
         var obj = {
             uid: null,
@@ -19,18 +31,6 @@ describe("test addLike logic", ()=> {
         }
         function callback_func (res) {
             expect(res).toBe(0)
-            done()
-        }
-        $func.addToLike(obj, callback_func)
-    })
-    test('success', done =>  {
-        var obj = {
-            // uid: '4',
-            uid: '6',
-            fid: '39'
-        }
-        function callback_func (res) {
-            expect(res).toBe(1)
             done()
         }
         $func.addToLike(obj, callback_func)
