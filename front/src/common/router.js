@@ -54,6 +54,11 @@ var backtoLogin = function (obj) {
     obj.$router.push('../login')
 }
 
+var toModify = function (obj, fid) {
+    var path = './modify/' + fid
+    obj.$router.push(path)
+}
+
 // 导出接口
 export default {
     toUser,
@@ -66,5 +71,6 @@ export default {
     toRecommend,
     toInfo,
     goBack,
-    backtoLogin
+    backtoLogin,
+    toModify
 }

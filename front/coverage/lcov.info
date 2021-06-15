@@ -1,5 +1,5 @@
 TN:
-SF:src/api/add.js
+SF:src\api\add.js
 FN:1,sum
 FNF:1
 FNH:1
@@ -14,7 +14,7 @@ BRF:1
 BRH:1
 end_of_record
 TN:
-SF:src/api/login.js
+SF:src\api\login.js
 FN:3,sendUserInfo
 FN:40,userLogin
 FNF:2
@@ -107,7 +107,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:src/common/router.js
+SF:src\common\router.js
 FN:3,toUser
 FN:16,toHome
 FN:20,toUpload

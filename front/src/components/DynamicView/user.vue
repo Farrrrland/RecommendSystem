@@ -45,7 +45,7 @@
                 <i class="el-icon-message"></i>
                 邮箱：{{email_address}}
                 <br>
-                <i class="el-icon-star-on"></i> 推荐数：1
+                <i class="el-icon-star-on"></i> 推荐数：{{rec_num}}
 
               </div>
 
@@ -61,12 +61,14 @@
 
 <script>
 import {getUserInfo} from '../../api/userInfo.js'
+import $getData from '../../api/getData'
 export default {
   data() {
     return {
       user_name: "",
       email_address: "",
       avator_url: "https://ui-avatars.com/api/",
+      rec_num: 0
     }
   },
   methods:{
@@ -96,6 +98,7 @@ export default {
     // else {
     //   this.msg = "User status err! Contact administrator!"
     // }
+    $getData.getRecNum(this)
   },
   handleOpen(key, keyPath) {
     console.log(key, keyPath);
