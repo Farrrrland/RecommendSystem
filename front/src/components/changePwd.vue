@@ -45,6 +45,12 @@ name: "register",
         // this.old_password = ""
         this.new_password = ""
         this.ver_new_password = ""
+      } else if(this.new_password == ''){
+        this.$message.error("请输入新密码！")
+        console.log("Cancel3")
+        // this.old_password = ""
+        this.new_password = ""
+        this.ver_new_password = ""
       } else {
           console.log("wrong")
           changePwd(this)
