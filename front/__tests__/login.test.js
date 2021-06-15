@@ -6,7 +6,7 @@ test('测试sum函数 1 加 2 等于 3',()=>{
 })
 
 describe("test login logic", ()=> {
-    test('evelyn login', done =>  {
+    test('successful login', done =>  {
         var obj = {
             user_name: 'evelyn',
             password: 'evelyn'
@@ -27,9 +27,6 @@ describe("test login logic", ()=> {
             password: 'evely'
         }
         function callback_func (res) {
-            console.log("got feedback")
-            // console.log(res)
-            // expect(res.data[0]).toBe(200)
             expect(res).toBe(0)
             done()
         }
@@ -41,9 +38,6 @@ describe("test login logic", ()=> {
             password: 'anything'
         }
         function callback_func (res) {
-            console.log("got feedback")
-            // console.log(res)
-            // expect(res.data[0]).toBe(200)
             expect(res).toBe(0)
             done()
         }
