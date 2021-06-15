@@ -1,6 +1,7 @@
+import axios from 'axios'
 let changePassword = function(obj, func) {
     // url待定
-    console.log("change pwd function here")
+    // console.log("change pwd function here")
     axios.post("http://111.229.81.92:8000/index/user/passwordChangeApi",
         JSON.stringify({
             uid: obj.uid,
@@ -16,7 +17,7 @@ let changePassword = function(obj, func) {
     )
         .then ((response) => {
             if (response.data[0]==200) {
-                console.log("pwd changed!")
+                // console.log("pwd changed!")
                 // console.log(response)
                 func(1)
             } else {

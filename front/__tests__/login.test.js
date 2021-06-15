@@ -1,5 +1,5 @@
-import {sum} from '../src/api/add'
-import $login_func from '../src/api/login'
+import {sum} from '../src/api/test/add'
+import $login_func from '../src/api/test/login'
 
 test('测试sum函数 1 加 2 等于 3',()=>{
     expect(sum(1,2)).toBe(3)
