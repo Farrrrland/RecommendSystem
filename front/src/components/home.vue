@@ -112,6 +112,11 @@ color: #999;
   letter-spacing: 2.5pt;
 }
 
+.dialog-footer {
+  display: block;
+  text-align: center;
+}
+
 
 </style>
 
