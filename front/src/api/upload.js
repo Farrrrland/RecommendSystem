@@ -22,9 +22,9 @@ var uploadFood = function(obj) {
 
 var modifyFood = function(obj, fid) {
     axios.post('http://111.229.81.92:8000/index/item/insertApi', {
-        fname: obj.food_name,
+        fname: obj.name,
         uid: window.sessionStorage.getItem('uid'),
-        fdesc: obj.food_desc,
+        fdesc: obj.desc,
         base64: obj.base64,
         fid: fid
     })

@@ -226,6 +226,7 @@ var getImagebyIndex = function(obj, img, index) {
   }
 
   var getImage = function(obj, img) {
+    console.log("img is" + img);
     var imgUrl = 'http://111.229.81.92:801/api/public/img/' + img
     axios.get(imgUrl, {
       responseType: 'arraybuffer',
@@ -237,13 +238,42 @@ var getImagebyIndex = function(obj, img, index) {
     })
     .then(data => {
         obj = data;
-        console.log(obj);
+        // console.log(obj);
     })
     .catch(
       (error) => {
           console.log(error);
     })
   }
+
+  var getInfoandImg = function(obj, fid) {
+    axios.post("http://111.229.81.92:8000/index/item/listApi", 
+        JSON.stringify({
+            fid: fid
+        }),
+        {
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            }
+        }
+    )
+    .then(
+        (response) => {
+            if(response.data[0]==200) {
+                console.log("got info");
+                obj["name"] = response.data[1].data[0].fname;
+                obj["desc"] = response.data[1].data[0].fdesc;
+                getImage(obj.base64, response.data[1].data[0].fimage);
+            }else {
+                console.log("error")
+            }
+    })
+    .catch(
+        (error) => {
+            console.log(error);
+    })
+}
 // 导出接口
 export default {
     getList,
@@ -251,5 +281,6 @@ export default {
     getInfo,
     getImage,
     getCollection,
-    getRecommend
+    getRecommend,
+    getInfoandImg
 }

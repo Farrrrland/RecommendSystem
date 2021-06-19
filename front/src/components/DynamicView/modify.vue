@@ -2,8 +2,8 @@
     
     <div class = "main">
         <h2> Recommend</h2>
-        <el-input v-model="food_name" placeholder="请输入食物名" clearable></el-input><br /><br />
-        <el-input type="textarea" :autosize="{ minRows: 6}" v-model="food_desc" placeholder="请输入推荐理由" clearable></el-input>
+        <el-input v-model="name" placeholder="请输入食物名" clearable></el-input><br /><br />
+        <el-input type="textarea" :autosize="{ minRows: 6}" v-model="desc" placeholder="请输入推荐理由" clearable></el-input>
         <br /><br />
       <el-upload
             list-type="picture"
@@ -25,8 +25,8 @@
             <div slot="tip" class="el-upload__tip">只能上传一张jpg/png文件</div>
         </el-upload>
         <el-row>
-            <el-button type="danger">取消</el-button>
-            <el-button type="success" @click="modify()">上传</el-button>
+            <el-button type="danger" @click="back()">取消</el-button>
+            <el-button type="success" @click="modify()">修改</el-button>
         </el-row>
     </div>
 
@@ -34,12 +34,14 @@
 
 <script>
 import upload_func from '../../api/upload'
+import $getData from '../../api/getData'
+import $router_func from '../../common/router'
 export default {
   name: 'modify',
   data() {
     return {
-        food_name: "",
-        food_desc: "",
+        name: "",
+        desc: "",
         fileList: [],
         dialogImageUrl: "",
         dialogVisible: false,
@@ -49,6 +51,7 @@ export default {
   methods: { 
       getFile(file) {
         console.log(this.fileList)
+        // if (this.base64 == "")
         this.getBase64(file.raw).then(res => {
             console.log("success")
             console.log("res = " + res)
@@ -92,7 +95,14 @@ export default {
       modify() {
           console.log("上传了")
           upload_func.modifyFood(this, this.$route.params.fid)
+      },
+      back() {
+          $router_func.goBack(this);
       }
+  },
+  created: function () {
+    console.log("fid = " + this.$route.params.fid);
+    $getData.getInfoandImg(this, this.$route.params.fid);
   }
 }
 </script>
