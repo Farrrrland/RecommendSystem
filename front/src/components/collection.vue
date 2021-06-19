@@ -40,10 +40,10 @@
           <el-row :gutter="20" class="row-con" justify="space-between">
             <el-col :span="8" v-for="(item,index) in items" :key="index" v-model="items[index]" :offset="2" class="box">
               <el-card class="card">
-                <div class="title"><img :src="item.fimg" @click="showInfo(item.fid)"></div>
+                <div class="title"><img :src="item.fimg"  height="125" @click="showInfo(item.fid)"></div>
                 <div style="padding: 14px;">
                   <span>{{item.fname}}</span><br/>
-                  <span>Food id is {{item.fid}}!</span><br/>
+<!--                  <span>Food id is {{item.fid}}!</span><br/>-->
                   <i class="el-icon-delete" @click="deleteCol(item.fid)"></i>
                 </div>
               </el-card>
@@ -108,6 +108,12 @@ export default {
 </script>
 
 <style scoped>
+.image {
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  object-fit: cover;
+}
 .el-aside {
   display: block;
   position: absolute;

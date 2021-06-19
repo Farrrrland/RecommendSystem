@@ -89,6 +89,10 @@ color: #999;
   width: 100%;
   display: block;
   cursor: pointer;
+  object-fit: cover;
+}
+.img{
+  object-fit: cover;
 }
 
 .clearfix:before,
