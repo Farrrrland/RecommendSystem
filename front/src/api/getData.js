@@ -274,6 +274,39 @@ var getImagebyIndex = function(obj, img, index) {
             console.log(error);
     })
 }
+
+var getRecNum = function(obj) {
+    let uid = 0
+    if(window.sessionStorage.getItem('login') == 'true') {
+        uid = window.sessionStorage.getItem('uid')
+    }
+    axios.post("http://111.229.81.92:8000/index/item/listApi", 
+        JSON.stringify({
+            uid: uid
+        }),
+        {
+            headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            }
+        }
+    )
+    .then ((response) => {
+        if (response.data[0]==200) {
+            console.log("response = ")
+            console.log(response)
+            obj.rec_num = response.data[1].result_count
+            console.log("num = " + obj.rec_num)
+        }else {
+            console.log(response)
+            console.log("error")
+        }
+    })
+    .catch (
+        (error) => {
+            console.log(error);
+    })
+}
 // 导出接口
 export default {
     getList,
@@ -282,5 +315,6 @@ export default {
     getImage,
     getCollection,
     getRecommend,
-    getInfoandImg
+    getInfoandImg,
+    getRecNum
 }
