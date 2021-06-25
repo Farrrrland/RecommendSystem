@@ -49,7 +49,8 @@ export default {
       this.$router_func.toHome(this)
     },
     forgetPwd() {
-      console.log("待完成忘记密码处理方法")
+      this.$message.error("请联系管理员找回密码！")
+      this.Cancel()
     }
   }
 }
